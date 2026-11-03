@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --light-gray: #F2F2F2;
+  --mid-gray: #777777;
+  --red: #E91D2A;
+}
+
+html {
+  background-color: #E5E5E5;
+  color: #000000;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #E5E5E5;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Restrained link styling: Black with underline, subtle red on hover */
+a {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.1s ease;
+}
+
+a:hover {
+  color: #E91D2A;
+}
+
+/* Strict 0px radius across design system */
+*, ::before, ::after {
+  border-radius: 0px !important;
+}
+
+/* Subtle hard-edge box shadow */
+.shadow-hard {
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.shadow-hard-sm {
+  box-shadow: 1px 1px 0px #000000;
+}
+
+/* Minimalist Focus Ring */
+:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
