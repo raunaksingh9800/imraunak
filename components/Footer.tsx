@@ -89,7 +89,7 @@ export function Footer() {
 
         <p className="text-[11px] leading-relaxed text-mid-gray">
           Computer Science &amp; Design · Atria Institute of Technology, Bengaluru.
-          Currently shaping factory inventory platforms at ITC Limited.
+          Designing human-centered digital experiences and interface systems.
         </p>
       </div>
     </footer>

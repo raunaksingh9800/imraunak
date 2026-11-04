@@ -11,14 +11,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Raunak Singh — UX Researcher & Product Builder",
   description:
-    "Portfolio of Raunak Singh. Computer Science & Design undergraduate, UX researcher, and product builder. Currently shaping digital experiences at ITC Limited · Technology Intern, Bengaluru.",
+    "Portfolio of Raunak Singh. Computer Science & Design undergraduate, UX researcher, and product builder based in Bengaluru.",
   authors: [{ name: "Raunak Singh", url: "https://raunaksingh.dev" }],
   keywords: [
     "Raunak Singh",
     "UX Researcher",
     "Product Designer",
     "Frontend Engineer",
-    "ITC Limited",
+    "CIA Labs",
+    "Lluna",
+    "PropPanda",
     "Computer Science & Design",
     "Bengaluru",
     "Design Systems",
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Raunak Singh — UX Researcher & Product Builder",
     description:
-      "I design, research, and build digital experiences that make complex things feel simple. Currently shaping digital experiences at ITC Limited · Technology Intern.",
+      "I design, research, and build digital experiences that make complex things feel simple.",
     url: "https://raunaksingh.dev",
     siteName: "Raunak Singh Portfolio",
     locale: "en_US",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Raunak Singh — UX Researcher & Product Builder",
     description:
-      "I design, research, and build digital experiences that make complex things feel simple. Currently shaping digital experiences at ITC Limited.",
+      "I design, research, and build digital experiences that make complex things feel simple.",
   },
   robots: {
     index: true,

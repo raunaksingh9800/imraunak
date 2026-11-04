@@ -42,9 +42,6 @@ export function Navigation() {
             <span className="inline-block w-2 h-2 bg-red" />
             <span>RAUNAK SINGH</span>
           </Link>
-          <span className="hidden xl:inline-block font-body text-xs text-mid-gray border-l border-black/20 pl-3">
-            ITC Limited · Tech Intern
-          </span>
         </div>
 
         {/* ───────────────────────────────────────────────────────────

@@ -26,58 +26,47 @@ export default function HomePage() {
   const projects: ProjectCardData[] = [
     {
       number: "01",
-      title: "ITC Limited — Rethinking Inventory Management",
-      category: "UX Research · Product Design · Enterprise",
+      title: "CIA Labs — Designing a Social Discovery Experience",
+      category: "UX Research · Interaction Design · Community Platform",
       headline:
-        "An inventory management experience designed around the physical workflows of factory floor workers, material handlers, and plant managers.",
-      slug: "itc-factory-inventory",
-      visualLabel: "ITC Rugged Handheld Terminal",
-      visualDetail: "64px glove targets · 30K+ transaction records analyzed · 15% latency reduction",
-      metricsSummary: "30+ worker interviews · 10+ mgmt sessions · 30K+ inventory logs",
+        "Creating an interactive QR-powered campus engagement platform and search-first AI discovery experience for 4,000+ students.",
+      slug: "cialabs-connect",
+      visualLabel: "CIA Labs QR Pass & AI Engine",
+      visualDetail: "10+ user flows mapped · WCAG AAA accessible · 60 student interviews",
+      metricsSummary: "4,000+ attendees · 60 interviews · 10+ user flows",
     },
     {
       number: "02",
-      title: "PropPanda — AI-Powered Real Estate",
-      category: "Product Design · Conversational AI · B2B",
+      title: "Lluna — Academic Management Ecosystem",
+      category: "Product Design · Systems Architecture · Higher Ed",
       headline:
-        "A conversational AI platform designed for 8+ Dubai brokerages to qualify international investor leads and automate private viewing tours.",
-      slug: "proppanda-ai",
-      visualLabel: "PropPanda AI Lead Radar",
-      visualDetail: "90% lead qualification reduction · 5K+ listings · 24/7 capture",
-      metricsSummary: "8+ Dubai clients · 5,000+ listings · 280ms inference latency",
+        "A connected academic management ecosystem uniting 3,000+ faculty, students, and administration across three role-tailored products.",
+      slug: "lluna-ecosystem",
+      visualLabel: "Lluna Multi-Role Matrix",
+      visualDetail: "Lluna Evalo · Lluna Student · Lluna Admin · AI-assisted layout testing",
+      metricsSummary: "3,000+ stakeholders · 100+ faculty surveys · 3 connected apps",
     },
     {
       number: "03",
-      title: "CIA Labs — Campus Social Discovery",
-      category: "UX Research · Interaction Design · Gamification",
+      title: "PropPanda — AI-Powered Real Estate Platform",
+      category: "Conversational UX · AI Interaction · B2B",
       headline:
-        "An interactive QR-powered campus engagement platform enabling students to discover peers through shared hobbies and gamified challenges.",
-      slug: "cialabs-connect",
-      visualLabel: "Cialabs QR Campus Pass",
-      visualDetail: "1.2s handshake · WCAG AAA accessibility · 4K+ concurrent users",
-      metricsSummary: "4,000+ active event attendees · 60 user interviews · 10+ flows",
+        "A multi-turn conversational AI platform qualifying luxury real estate buyer leads across Dubai brokerages.",
+      slug: "proppanda-ai",
+      visualLabel: "PropPanda AI Lead Radar",
+      visualDetail: "90% qualification time cut · 5,000+ listings · 280ms inference latency",
+      metricsSummary: "8+ Dubai clients · 5,000+ listings · 280ms latency",
     },
     {
       number: "04",
-      title: "Lluna — Academic Management Ecosystem",
-      category: "SaaS · Systems Design · AI Search",
+      title: "Custom Creations",
+      category: "Visual Design · Interaction Systems · Experimental UI",
       headline:
-        "A multi-role academic platform connecting faculty, students, and administration, powered by semantic vector search to eliminate redundant research.",
-      slug: "lluna-ecosystem",
-      visualLabel: "Lluna Vector Similarity Radar",
-      visualDetail: "100+ faculty surveys · 6 depts unified · 99% lead time cut",
-      metricsSummary: "3,000+ active campus users · 400+ capstones indexed",
-    },
-    {
-      number: "05",
-      title: "RNK Games — TV Gaming Interface",
-      category: "Interaction Design · 10-Foot Living Room UI",
-      headline:
-        "A minimalist, controller-first gaming dashboard designed for television screens, prioritizing 10-foot distance legibility and instant play.",
-      slug: "rnk-games-tv",
-      visualLabel: "RNK 10-Foot Living Room Console",
-      visualDetail: "1.08x spring focus scale · 5% TV safe margins · D-pad controls",
-      metricsSummary: "10-foot couch ergonomics · <16ms input response · 2-click depth",
+        "A pure visual showcase of interface design systems, layouts, and product mockups. Click to expand in fullscreen.",
+      slug: "custom-creations",
+      visualLabel: "Visual Design & UI Showcase",
+      visualDetail: "Pinterest-style gallery · Fullscreen Lightbox · Design Systems",
+      metricsSummary: "12+ Visual Artifacts · Fullscreen Lightbox · Design Systems",
     },
   ];
 
@@ -89,14 +78,20 @@ export default function HomePage() {
       <section className="border-b border-black pb-10 sm:pb-14">
         <div className="space-y-6 max-w-4xl">
           {/* Subtle Credibility & Context Line */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-y-1.5 sm:gap-x-4 font-heading text-xs uppercase tracking-wider text-mid-gray">
-            <div className="flex items-center gap-1.5 text-black font-bold shrink-0">
-              <span className="w-2 h-2 bg-red inline-block" />
-              <span>Currently at ITC Limited · Technology Intern</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 font-heading text-xs uppercase tracking-wider text-mid-gray">
+            <div className="flex items-center gap-2.5 text-black font-bold shrink-0">
+              <img
+                src="/itc-logo.svg"
+                alt="ITC Limited"
+                className="h-7 w-auto object-contain inline-block shrink-0"
+              />
+              <span className="text-xs sm:text-sm font-black tracking-wider text-black">
+                Currently at ITC Limited · Technology Intern
+              </span>
             </div>
             <span className="hidden sm:inline text-black/30">|</span>
             <div className="text-mid-gray break-words">
-              <span>Bengaluru, India · Computer Science &amp; Design · Class of 2028</span>
+              <span>Bengaluru, India </span>
             </div>
           </div>
 
@@ -148,27 +143,12 @@ export default function HomePage() {
         {/* ─────────────────────────────────────────────────────────
             LEFT RAIL (~28% / 4 Cols on Desktop)
         ─────────────────────────────────────────────────────────── */}
-        <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
+        <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[72px] self-start">
           {/* Compact Monochrome Directory */}
           <PortfolioIndex />
 
           {/* Single Red Callout (Restrained single accent usage) */}
-          <div className="border border-black bg-red text-white p-4 shadow-hard-sm">
-            <span className="font-heading font-black text-xs uppercase tracking-wider block mb-1.5">
-              Available For 2026/2027:
-            </span>
-            <p className="font-body text-xs text-white/95 leading-relaxed m-0">
-              I collaborate with design leaders and engineering teams to research user friction, architect intuitive systems, and deliver production frontend code.
-            </p>
-            <div className="pt-3">
-              <a
-                href="mailto:raunaksingh9800@gmail.com"
-                className="font-heading font-bold text-[11px] uppercase tracking-wider text-black bg-white hover:bg-light-gray px-3 py-1.5 border border-black no-underline inline-block"
-              >
-                Request Dialogue ↗
-              </a>
-            </div>
-          </div>
+
         </aside>
 
         {/* ─────────────────────────────────────────────────────────
@@ -182,7 +162,7 @@ export default function HomePage() {
             <SectionEyebrow
               number="01"
               title="Selected Work"
-              subtitle="5 production case studies spanning enterprise, AI, and systems."
+              subtitle="4 production case studies spanning campus AI, academic systems, and visual design."
             />
 
             <div className="space-y-4">
@@ -238,7 +218,7 @@ export default function HomePage() {
                   </p>
 
                   <div className="border-l-2 border-red pl-3 py-1 font-body text-sm font-semibold text-black bg-light-gray/60">
-                    &ldquo;Currently, I&apos;m working with ITC Limited, exploring how technology can simplify real-world factory operations.&rdquo;
+                    &ldquo;Currently interning at ITC Limited as a Technology Intern and leading UX research at CIA Labs.&rdquo;
                   </div>
                 </div>
               </div>
@@ -289,9 +269,8 @@ export default function HomePage() {
               {WORK_EXPERIENCE.map((exp) => (
                 <div
                   key={exp.id}
-                  className={`border border-black p-5 shadow-hard-sm ${
-                    exp.isHighPriority ? "bg-white border-l-4 border-l-red" : "bg-white"
-                  }`}
+                  className={`border border-black p-5 shadow-hard-sm ${exp.isHighPriority ? "bg-white border-l-4 border-l-red" : "bg-white"
+                    }`}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-black/20 pb-2 mb-3">
                     <div className="flex items-center gap-2">

@@ -11,10 +11,32 @@ export interface Project {
   isFlagship?: boolean;
   featuredTag?: string;
   description: string;
+  liveUrl?: string;
+  demoUrl?: string;
   metrics: { label: string; value: string; detail?: string }[];
   disciplines: string[];
   tools: string[];
   heroImageAlt: string;
+  imageSlots?: {
+    figure: string;
+    title: string;
+    src?: string;
+    caption: string;
+    recommendedSize: string;
+  }[];
+  videoSlots?: {
+    slotNumber: string;
+    title: string;
+    src?: string;
+    caption: string;
+    duration?: string;
+    description?: string;
+    aspectRatio?: "portrait" | "landscape";
+    loop?: boolean;
+    muted?: boolean;
+    autoPlay?: boolean;
+    targetFile?: string;
+  }[];
   context: {
     client: string;
     challenge: string;
@@ -63,715 +85,690 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  // ─────────────────────────────────────────────────────────────
+  // 01. CIA LABS (Ranked #1)
+  // ─────────────────────────────────────────────────────────────
   {
-    id: "itc-factory",
-    slug: "itc-factory-inventory",
+    id: "cialabs-connect",
+    slug: "cialabs-connect",
     number: "01",
-    title: "Rethinking Inventory Management on the Factory Floor",
-    headline: "Translating 30K+ inventory transactions and 40+ stakeholder interviews into an error-resilient, low-cognitive-load floor platform.",
-    category: "UX Research · Product Design · Enterprise Technology",
-    organization: "ITC Limited — Foods Division",
-    timeline: "July 2026 – Present",
-    location: "Bengaluru, India",
+    title: "CIA Labs — Designing a Social Discovery Experience for Campus Communities",
+    headline:
+      "Creating an interactive QR-powered campus engagement platform and search-first AI discovery experience for 4,000+ students.",
+    category: "UX Research · Interaction Design · Community Platform",
+    organization: "Community in Atria Labs (CIA Labs)",
+    timeline: "January 2026 – Present",
+    location: "Atria Institute of Technology, Bengaluru",
     isFlagship: true,
     featuredTag: "Flagship Case Study",
+    liveUrl: "https://connect.cialabs.org",
+    demoUrl: "https://cialabs-homepage.vercel.app/",
     description:
-      "An inventory management experience designed around the real physical workflows of factory floor workers, material handling operators, and operational leaders.",
+      "CIA Labs wanted to create a more interactive way for students to connect with one another across the college. The platform enables students to scan each other's QR codes, guess their hobbies, discover shared interests, and earn points through gamified interactions.",
     metrics: [
-      { label: "Floor Worker Interviews", value: "30+", detail: "Across loaders, operators, and shift leads" },
-      { label: "Management Deep Dives", value: "10+", detail: "Procurement, warehouse, and finance heads" },
-      { label: "Inventory Records Analyzed", value: "30K+", detail: "PO, GRN, and equipment issue logs" },
-      { label: "Decision Latency Reduced", value: "15%", detail: "In operational procurement & floor allocation" },
+      { label: "Active Attendees", value: "4,000+", detail: "Campus-wide events reached" },
+      { label: "Student Interviews", value: "60", detail: "Across multiple graduating years" },
+      { label: "User Flows Mapped", value: "10+", detail: "Scanning, profiles, gamification, rewards" },
+      { label: "Accessibility Tier", value: "WCAG AAA", detail: "Universal access for students with disabilities" },
     ],
     disciplines: [
-      "Contextual Inquiry",
-      "Field Research",
-      "Ergonomic Interface Design",
-      "Low-Cognitive-Load UX",
-      "Enterprise Systems",
+      "User Research & Journey Mapping",
+      "Interaction Design & Flow Architecture",
+      "Search-First Homepage Design",
+      "Conversational AI Integration (Gemini Flash)",
+      "Accessibility & WCAG AAA Compliance",
     ],
-    tools: ["Figma", "FigJam", "Data Analytics", "Workflow Mapping", "Interactive Prototyping"],
-    heroImageAlt: "ITC Factory Inventory Intelligence System interface concept",
+    tools: ["Figma", "FigJam", "Gemini Flash API", "User Journey Mapping", "Rapid Prototyping"],
+    heroImageAlt: "CIA Labs Social Discovery and QR Pass Architecture",
+    imageSlots: [
+      {
+        figure: "01",
+        title: "Campus Social Discovery & QR Pass Flow",
+        src: "/projects/cialabs/image2.png",
+        caption: "Core interaction pattern: Instant access to both personal QR code and scanner directly from the homepage.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "02",
+        title: "End-to-End User Journey & Interaction Architecture",
+        src: "/projects/cialabs/image3.png",
+        caption: "Mapping 10+ user flows covering QR scanning, profile discovery, hobby guessing, gamification, and reward redemption.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "03",
+        title: "Search-First Homepage & AI Conversational Interface",
+        src: "/projects/cialabs/image4.png",
+        caption: "Shifted homepage from passive text blocks to an active search-first discovery interface powered by Gemini Flash modal answers.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "04",
+        title: "Search-First Homepage & AI Conversational Interface",
+        src: "/projects/cialabs/image8.png",
+        caption: "Shifted homepage from passive text blocks to an active search-first discovery interface powered by Gemini Flash modal answers.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+
+    ],
+    videoSlots: [
+      {
+        slotNumber: "01",
+        title: "Live Walkthrough: Campus Platform, QR Engine & AI Discovery",
+        aspectRatio: "landscape",
+        loop: true,
+        muted: true,
+        autoPlay: true,
+        targetFile: "/videos/cialabs-walkthrough.mp4",
+        src: "/videos/cialabs-walkthrough.mp4",
+        caption:
+          "Widescreen 16:9 walkthrough demonstrating the live campus platform: instant QR pass access, frictionless camera scanning, gamified hobby discovery, and the Gemini-powered conversational search modal. Configured to auto-loop continuously and start muted.",
+        description:
+          "Landscape 16:9 product demo walkthrough. Drop your video file into /public/videos/cialabs-walkthrough.mp4 (or embed YouTube/Loom).",
+      },
+    ],
     context: {
-      client: "ITC Limited (Foods Division)",
+      client: "Community in Atria Labs (CIA Labs), Atria IT",
       challenge:
-        "Factory floor operators were grappling with dense, legacy desktop ERP software running on dusty bay terminals. High cognitive load, small click targets, industrial glove interference, and inconsistent barcode scans caused shipping delays and logging mismatches.",
+        "Building a social discovery application that students would actually enjoy using, understand without instructions, and navigate effortlessly regardless of tech familiarity or accessibility needs.",
       solution:
-        "Engineered an ergonomic, high-contrast, task-isolated floor interface built for rugged handhelds and floor tablets with one-touch scanning, instant batch verification, and zero manual data reentry.",
-      scope: "End-to-end UX research, stakeholder alignment, design system tokens for industrial lighting, and floor-tested prototype architecture.",
+        "Designed a two-tap QR scanning and hobby guessing experience alongside a search-first AI-powered homepage answering student questions conversationally in their own words.",
+      scope: "60 student interviews, 10+ interaction flows, complete homepage redesign, AI discovery modal.",
     },
     narrative: {
       overview:
-        "At ITC Limited's Foods Division in Bengaluru, inventory tracking isn't an abstract digital record — it is tons of raw ingredients, packaging foils, pallet stacks, and strict batch-expiration deadlines moving continuously across noisy manufacturing floors. Despite powerful enterprise ERP backends, the frontline floor interface was creating severe operational friction.",
+        "CIA Labs wanted to create a more interactive way for students to connect with one another across the college. The idea was to build a campus-wide social discovery experience where students could scan each other's QR codes, guess their hobbies, discover shared interests, and earn points through gamified interactions.\n\nThe challenge wasn't simply building an application that supported QR scanning. It was creating an experience that students would actually enjoy using, understand without instructions, and be able to navigate effortlessly, regardless of their familiarity with technology or accessibility needs.",
       problem:
-        "Workers handling 50kg bags and pallet jacks had to remove heavy safety gloves to interact with cramped 12-column desktop spreadsheets on communal floor kiosks. In busy morning dispatches, this led to handwritten paper notes, delayed system updates by up to 6 hours, and phantom stock discrepancies across 30,000+ monthly items.",
+        "Traditional campus apps suffer from excessive onboarding friction and hidden primary actions. Freshers felt overwhelmed by navigation trees and didn't understand how to get involved in community initiatives.",
       environment:
-        "High acoustic noise (75-85 dB), harsh overhead fluorescent glare alternating with dim storage bays, workers wearing rubberized safety gloves, fast forklift transit, and semi-skilled operators speaking varied vernacular languages.",
+        "Crowded campus event halls, loud auditoriums, outdoor amphitheaters with bright glare, and varied student smartphones with differing screen sizes and network conditions.",
       researchMethodology: {
-        title: "Field Research & Operational Shadowing",
+        title: "60-Student Field Inquiry & Journey Diagnostics",
         description:
-          "Rather than relying on conference-room surveys, we conducted extensive contextual inquiry directly on the active plant floor across morning, evening, and overnight shifts.",
+          "Conducted 60 in-depth user interviews across graduating years to understand what makes campus digital interactions engaging vs disengaging.",
         items: [
-          "30+ one-on-one contextual inquiry sessions with material handlers, warehouse loaders, and bay supervisors.",
-          "10+ semi-structured interviews with senior plant managers, procurement leads, and finance controllers.",
-          "Analysis of 30,000+ historical transactional records (Purchase Orders, Goods Receipt Notes, Store Issue Vouchers).",
-          "Ergonomic analysis of physical floor obstacles: glove touch latency, barcode scanner reach, and glare angles.",
-          "Workflow timing audits: measuring every second elapsed from pallet arrival at dock to system reconciliation.",
+          "60 one-on-one student discovery interviews across first-year to final-year cohorts.",
+          "End-to-end journey mapping from QR pass generation to real-time event scanning.",
+          "Friction audit: identifying navigation drop-offs in campus community apps.",
+          "Accessibility evaluation ensuring students with visual and motor disabilities can fully participate.",
         ],
       },
       insights: {
-        title: "Core Field Insights",
+        title: "Core Student Interaction Insights",
         description:
-          "The research invalidated the assumption that workers needed 'more features.' What they desperately needed was cognitive relief and physical forgiveness.",
+          "Rather than assuming gamification alone would drive adoption, research proved that immediacy and clarity were the deciding factors.",
         quote:
-          "I have to take off my safety gloves 40 times a day just to tap a tiny 'Submit' button on a screen that doesn't register through greasy screen protectors. It's faster to write it on my palm.",
-        quoteAuthor: "Ramu, Senior Material Handler (11 years on floor)",
+          "If I have to open a sidebar, tap 'Settings', and wait 3 screens just to show my QR code at a booth, I'm just going to walk away.",
+        quoteAuthor: "Second-Year Engineering Student (Interview #14)",
         findings: [
           {
-            title: "The Glove Friction Penalty",
-            desc: "Standard 32px buttons failed 68% of the time with industrial nitrile gloves. Operators defaulted to using pens or keys to poke screens, cracking touch displays.",
-            stat: "68% fail rate",
+            title: "Immediate Primary Action Access",
+            desc: "The QR scanner and personal QR code had to be accessible directly from the homepage within 1 tap.",
+            stat: "85% lower friction",
           },
           {
-            title: "Cognitive Overload in Bay Lighting",
-            desc: "Low-contrast grey-on-white tables were unreadable from 2 meters away in dim warehouse aisles, forcing workers to walk back and forth between pallets and terminals.",
-            stat: "2.4 km wasted walking/shift",
+            title: "Hobby Guessing Sparks Real Dialogue",
+            desc: "Gamified guessing games created natural conversation starters between strangers during campus orientations.",
+            stat: "3.4x interaction rate",
           },
           {
-            title: "Fear of Irreversible Errors",
-            desc: "Legacy screens lacked clear confirmation states. Workers feared entering wrong batch codes would halt production, leading to hesitation and workflow hoarding.",
-            stat: "4.2 min average delay per receipt",
-          },
-          {
-            title: "Disparate Heavy vs Lightweight Workflows",
-            desc: "Bulk raw materials (grain, sugar) require gross tare-weight verification, whereas printed cartons require serialized batch scanning. Forcing both into one generic form caused chronic validation failure.",
-            stat: "30K+ records analyzed",
+            title: "Freshers Need Search Over Sitemaps",
+            desc: "New students don't know organizational hierarchies; they prefer typing natural queries to find clubs and events.",
+            stat: "72% preferred search",
           },
         ],
       },
       personas: [
         {
-          role: "Material Handler & Loader",
-          name: "Ramu (Floor Operator)",
-          quote: "I just need to know which bay this pallet belongs to and tap 'Done'. I can't read tiny tables while driving a forklift.",
-          context: "Works 8-hour shifts on active dock bays. Operates barcode scanner while wearing PPE.",
-          painPoints: [
-            "Removing gloves repeatedly causes safety infractions.",
-            "Can't read small font sizes under dim bay lights.",
-            "Complex error dialogs require supervisor intervention.",
-          ],
-          designResponse: "64px touch targets, massive high-contrast typography, single-step camera/laser scanner triggers, and green/amber auditory confirmation beeps.",
+          role: "First-Year Student (Fresher)",
+          name: "Ananya",
+          quote: "I want to join design and coding clubs, but I have no idea who leads them or how to get involved.",
+          context: "New to campus, eager to make friends, overwhelmed by information overload.",
+          painPoints: ["Doesn't know where clubs meet", "Intimidated by senior cliques", "Buried registration links"],
+          designResponse: "Prominent search bar on homepage and instant QR icebreaker games at orientation.",
         },
         {
-          role: "Shift Supervisor",
-          name: "Suresh (Floor Operations Lead)",
-          quote: "My phone rings all shift because bay workers don't know if a batch was accepted or rejected by quality inspection.",
-          context: "Oversees 14 bays. Needs instant visibility into pallet throughput, dock queues, and unresolved discrepancies.",
-          painPoints: [
-            "Spends 2 hours per shift reconciling paper notes with ERP records.",
-            "Lacks real-time floor status when dock bottlenecks form.",
-            "Manual overrides take 8 clicks through nested submenus.",
-          ],
-          designResponse: "Glanceable bay-status radar, one-tap supervisor approvals, and automated mismatch flagging with photo capture.",
+          role: "Event Organizer & Community Lead",
+          name: "Karthik",
+          quote: "We need students engaged and moving through event booths quickly without app crashes or scan delays.",
+          context: "Managing high-volume hackathons and club fairs with 500+ attendees per hour.",
+          painPoints: ["Slow QR scan lag", "Manual attendance sheets", "Low student engagement after sign-up"],
+          designResponse: "Sub-second camera viewfinder, instant points feedback, and live community leaderboards.",
         },
       ],
       informationArchitecture: {
         summary:
-          "We discarded the legacy 5-level nested ERP tree in favor of a 2-tier role-scoped task architecture organized around physical actions: Receive, Verify, Stow, and Issue.",
+          "Replaced multi-level nested menus with a flat, dual-action home surface paired with an AI conversational search layer.",
         keyShifts: [
           {
-            legacy: "14-field multi-tab form with 8 mandatory text inputs",
-            redesigned: "Zero-text primary flow: Camera scan auto-populates PO & Item Details",
-            why: "Eliminates typo-induced inventory loss and speeds cycle time from 3.5 minutes to 18 seconds.",
+            legacy: "QR scanner buried 3 levels inside user profile settings",
+            redesigned: "Persistent dual action on homepage: [Scan QR] and [Show My Pass]",
+            why: "Matches real-world physical event dynamics where speed and reciprocity matter.",
           },
           {
-            legacy: "Low-contrast subtle grey UI designed for 1080p office monitors",
-            redesigned: "High-contrast industrial theme with oversized status pills (800+ nit visibility)",
-            why: "Guarantees readability in direct sunlight on loading docks and dark warehouse mezzanine floors.",
-          },
-          {
-            legacy: "Silent error alerts hidden in tiny top-right toast banners",
-            redesigned: "Full-width haptic + auditory + colored banner validation with clear recovery paths",
-            why: "Overcomes 80dB plant ambient noise so operators never miss an invalid batch rejection.",
+            legacy: "Static directory of club committees and text announcements",
+            redesigned: "Search-first conversational interface powered by Gemini Flash modal",
+            why: "Lets students ask questions in their own words without having to learn organizational charts.",
           },
         ],
       },
       designDecisions: [
         {
-          title: "64px Ergonomic Minimum Touch Targets",
+          title: "Key Architectural Decisions",
           description:
-            "Every interactive touch area was expanded to a minimum of 64×64 physical pixels with 16px safety padding, tested specifically with standard industrial work gloves.",
-          rationale: "Zero missed taps during field tests; removed the need for workers to remove safety gear.",
-          evidence: "Observed tap accuracy increased from 32% to 99.4% in live testing.",
-        },
-        {
-          title: "Dual Mode: High-Contrast Industrial & Dock Sunlight",
-          description:
-            "Designed a dedicated ultra-contrast dark theme for dim storage racks and a high-luminance light mode for open loading bays subject to direct Bangalore sunlight.",
-          rationale: "Prevents screen wash-out and eye fatigue across fluctuating industrial environments.",
-          evidence: "Legibility distance increased from 0.8 meters to 2.6 meters on wall-mounted and forklift tablets.",
-        },
-        {
-          title: "Single-Action Focus Mode",
-          description:
-            "Stripped all peripheral navigation during an active scanning task. The screen displays only the active pallet, expected quantity, scanned count, and a giant confirm button.",
-          rationale: "Reduces cognitive load to near zero for temporary and semi-skilled contract workers.",
-          evidence: "Onboarding time for new operators decreased from 3 days to under 25 minutes.",
+            "Prioritizing tactile haptic responsiveness, high contrast visual legibility, and zero-learning-curve UX.",
+          rationale:
+            "Campus events are loud and distracting; feedback must be multimodal (visual pulse, sound, and haptic buzz).",
+          evidence:
+            "98% of surveyed students completed their first QR connection within 10 seconds of opening the app.",
         },
       ],
       constraintsAndLearnings: {
         constraints: [
-          "Legacy SAP backend with rigid API response structures and occasional connection drops.",
-          "Varying tablet hardware across bays ranging from ruggedized Zebra Android units to iPad kiosks.",
-          "Strict manufacturing compliance and hygiene protocols forbidding paper clipboards in certain food zones.",
+          "Intermittent campus Wi-Fi required offline-first pass caching.",
+          "Varying camera hardware across low-end Android and iOS devices.",
+          "Zero tolerance for complex onboarding during fast-paced campus events.",
         ],
         learnings: [
-          "Enterprise UX is ergonomic UX: software on a factory floor is as much a physical tool as a wrench or forklift.",
-          "Designing for the most constrained user (tired operator at 3 AM in gloves) makes the system exponentially better for everyone.",
-          "Real data analytics (30K+ transaction analysis) was essential to prove to senior leadership why workers bypassed legacy screens.",
+          "Designing for the most stressed context (a noisy, crowded event hall) makes the regular experience effortlessly robust.",
+          "AI search works best when paired with suggested quick chips for common student queries.",
         ],
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────
+  // 02. LLUNA (Ranked #2)
+  // ─────────────────────────────────────────────────────────────
   {
-    id: "proppanda-ai",
-    slug: "proppanda-ai",
+    id: "lluna-ecosystem",
+    slug: "lluna-ecosystem",
     number: "02",
-    title: "Making Real Estate Conversations More Intelligent",
-    headline: "Designing conversational AI workflows and agent intelligence tools across 5,000+ luxury Dubai listings.",
-    category: "Product Design · AI · UX Strategy",
-    organization: "genzi.ai",
-    timeline: "December 2025 – March 2026",
-    location: "Remote, Singapore (Dubai Market)",
+    title: "Lluna — Transforming Academic Administration Through Human-Centered Design",
+    headline:
+      "A connected academic management ecosystem uniting 3,000+ faculty, students, and administration across three role-tailored products.",
+    category: "UX Research · Product Design · Academic Systems",
+    organization: "Atria Institute of Technology",
+    timeline: "August 2025 – Present",
+    location: "Bengaluru, India",
     isFlagship: false,
-    featuredTag: "AI & Conversational UX",
+    featuredTag: "SaaS Ecosystem",
+    liveUrl: "https://lluna.in",
     description:
-      "An AI-powered real estate platform designed for 8+ Dubai-based brokerage clients, supporting 5K+ property listings and incoming international leads.",
+      "Academic administration relied heavily on paper-based processes and fragmented spreadsheets. Lluna unifies student marks, attendance, exam evaluation, room allocation, and evaluator assignments across three distinct, connected products: Lluna Evalo (Faculty), Lluna Student (Students), and Lluna Admin (HODs).",
     metrics: [
-      { label: "Dubai Brokerage Clients", value: "8+", detail: "Leading UAE agencies & broker networks" },
-      { label: "Property Listings & Leads", value: "5K+", detail: "Curated luxury & commercial listings" },
-      { label: "Lead Qualification Latency", value: "-90%", detail: "From hours down to real-time conversation" },
-      { label: "International Capture", value: "24/7", detail: "Multilingual coverage across timezone gaps" },
+      { label: "Institutional Reach", value: "3,000+", detail: "Faculty, students, and admin stakeholders" },
+      { label: "Faculty Surveys", value: "100+", detail: "Across engineering & science departments" },
+      { label: "Dedicated Products", value: "3", detail: "Lluna Evalo · Lluna Student · Lluna Admin" },
+      { label: "Design Validation", value: "A/B AI", detail: "AI-assisted testing of interface layouts" },
     ],
     disciplines: [
-      "Conversational UI Design",
-      "Lead Qualification Systems",
-      "Agent Dashboard UX",
-      "Multi-turn AI Flows",
-      "Information Architecture",
+      "Multi-Stakeholder Workflow Research",
+      "Information Architecture & System Design",
+      "AI-Assisted Layout Validation",
+      "Enterprise Form & Table Ergonomics",
+      "Rapid Iterative Deployment",
     ],
-    tools: ["Figma", "React", "AI Prompt UX", "Journey Mapping", "Design Systems"],
-    heroImageAlt: "PropPanda AI real estate assistant and agent intelligence interface",
+    tools: ["Figma", "AI-assisted A/B Testing", "Product Design", "UX Research", "System Mapping"],
+    heroImageAlt: "Lluna Academic Management Ecosystem multi-platform interface",
+    imageSlots: [
+      {
+        figure: "01",
+        title: "Lluna Evalo — Faculty Evaluation & Marks Interface",
+        src: "/projects/lluna/image1.png",
+        caption: "Streamlined evaluation dashboard replacing manual spreadsheets with single-keystroke grade entry and attendance auditing.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "02",
+        title: "Lluna Student & Admin Stakeholder Ecosystem",
+        src: "/projects/lluna/image3.png",
+        caption: "Role-scoped views ensuring faculty, students, and HODs only see the information relevant to their immediate tasks.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "03",
+        title: "AI-Assisted Design Validation & Comparative Layout Testing",
+        src: "/projects/lluna/image4.jpg",
+        caption: "Evaluating high-density tabular ergonomics with faculty members to minimize cognitive fatigue during exam grading.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "04",
+        title: "Teacher Survey",
+        src: "/projects/lluna/image7.jpg",
+        caption: "",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+    ],
     context: {
-      client: "genzi.ai (Deploying for Dubai Real Estate Clients)",
+      client: "Atria Institute of Technology",
       challenge:
-        "High-net-worth real estate buyers in Dubai enquire across varying timezones (Europe, Asia, Americas). Human agents were overwhelmed by repetitive qualification questions, while buyers abandoned generic static forms and clunky WhatsApp bots.",
+        "Managing student marks, attendance, exam evaluation, room allocation, and evaluator assignments required faculty to juggle dozens of paper sheets and unlinked Excel files, causing severe cognitive overhead and delayed publish dates.",
       solution:
-        "Designed an intelligent conversational AI layer that dynamically presents visual property cards, qualifies buyer budgets and visa intentions in natural language, and seamlessly books calendar tours for top agents.",
-      scope: "Conversational dialog flows, interactive property preview cards, agent prioritization dashboard, and appointment scheduling interactions.",
+        "Architected an interconnected three-tier ecosystem (Lluna Evalo, Lluna Student, Lluna Admin) replacing paperwork with automated room allocation and instant marks verification.",
+      scope: "100+ faculty interviews, 3 product experiences, AI-assisted layout testing, full institutional rollout.",
     },
     narrative: {
       overview:
-        "Dubai's real estate market operates 24/7 with global investors spanning multiple languages and financial profiles. At genzi.ai, we set out to build PropPanda: a high-trust conversational experience that bridges the gap between cold web portals and warm human broker relationships.",
+        "Academic administration at my college relied heavily on paper-based processes and spreadsheets. Managing student marks, attendance, examination evaluation, room allocation, and evaluator assignments required faculty members to coordinate across multiple sheets and manually maintain records.\n\nThe problem extended beyond digitizing paperwork. Faculty members were dealing with significant cognitive overhead from switching between spreadsheets, tracking evaluation assignments, allocating rooms, and maintaining student records. The objective was to transform these fragmented workflows into a connected digital ecosystem.",
       problem:
-        "Traditional real estate chatbots felt robotic and irritating — forcing buyers into endless dropdown loops. Meanwhile, human brokers were drowning in unqualified leads, wasting 70% of their workday answering basic queries on service charges and payment plans.",
+        "Faculty spent weekends manually copying evaluation scores into central sheets. Room allocation during final exams required 4 faculty members working across 3 whiteboards for 2 days.",
+      environment:
+        "High-pressure exam valuation centers, departmental faculty rooms, and mobile student checking between classes.",
+      researchMethodology: {
+        title: "100+ Faculty Surveys & Workflow Diagnostics",
+        description:
+          "Gathered qualitative and quantitative feedback from department heads, senior professors, lab instructors, and examination officers.",
+        items: [
+          "100+ comprehensive faculty surveys analyzing administrative time drains.",
+          "Direct observation during semester-end grading sessions.",
+          "Workflow timing audits measuring minutes per student grade entry.",
+          "Constraint mapping for multi-department examination scheduling.",
+        ],
+      },
+      insights: {
+        title: "Key Administrative Friction Points",
+        description:
+          "Rather than a single overloaded admin dashboard, each group required an interface sculpted strictly to their responsibilities.",
+        quote:
+          "I don't need a hundred analytics charts. When I have 180 bluebooks to grade before 5 PM, I need to type marks with one hand and flip papers with the other.",
+        quoteAuthor: "Associate Professor, Computer Science (Survey #42)",
+        findings: [
+          {
+            title: "Fragmented Data Sources",
+            desc: "Attendance and marks lived in separate files, forcing duplicate manual entries.",
+            stat: "4 hrs/week wasted",
+          },
+          {
+            title: "Complex Allocation Workflows",
+            desc: "Assigning evaluators and exam rooms required balancing 6 conflicting constraints.",
+            stat: "85% faster allocation",
+          },
+          {
+            title: "Role-Specific Visibility",
+            desc: "Students only needed their scores and room number; HODs needed cross-department aggregates.",
+            stat: "3 dedicated apps",
+          },
+        ],
+      },
+      personas: [
+        {
+          role: "Evaluating Faculty Member",
+          name: "Dr. Ramesh",
+          quote: "I want an interface that gets out of my way so I can grade papers accurately without misplacing roll numbers.",
+          context: "Grading 150+ papers per semester under tight university submission deadlines.",
+          painPoints: ["Typing errors in Excel", "Lost grading sheets", "Cluttered software menus"],
+          designResponse: "Keyboard-navigable fast evaluation matrix in Lluna Evalo.",
+        },
+        {
+          role: "Head of Department (HOD)",
+          name: "Dr. Malini",
+          quote: "I need immediate visibility into which professors have completed valuation and which rooms are assigned.",
+          context: "Managing 40 faculty members and ensuring institutional compliance.",
+          painPoints: ["Constant chasing of paper forms", "No real-time status tracker", "Discrepancy resolution"],
+          designResponse: "Lluna Admin centralized bird's-eye view with automated progress alerts.",
+        },
+      ],
+      informationArchitecture: {
+        summary:
+          "Divided an overloaded administrative monster into three hyper-specialized products sharing a single real-time data spine.",
+        keyShifts: [
+          {
+            legacy: "All features crammed into a single bloated desktop portal",
+            redesigned: "Three scoped applications: Lluna Evalo, Lluna Student, Lluna Admin",
+            why: "Eliminates cognitive noise; faculty only see grading, students only see results.",
+          },
+          {
+            legacy: "Manual spreadsheet cross-referencing for room allocation",
+            redesigned: "Constraint-driven algorithmic room & evaluator matchmaker",
+            why: "Reduces 2 days of manual whiteboard scheduling into a 2-click operation.",
+          },
+        ],
+      },
+      designDecisions: [
+        {
+          title: "AI-Assisted Layout Validation & Rapid Prototyping",
+          description:
+            "Tested competing table density configurations using comparative AI feedback and live faculty usability trials.",
+          rationale:
+            "Ensured that table row heights, typography contrast, and keyboard shortcuts minimized physical eye and hand fatigue.",
+          evidence:
+            "Faculty grading speeds increased by 40% with zero reported entry misalignments.",
+        },
+      ],
+      constraintsAndLearnings: {
+        constraints: [
+          "Legacy university grading scales requiring strict backward compatibility.",
+          "Varying digital literacy across senior faculty members.",
+          "Strict institutional data security and roll-number isolation.",
+        ],
+        learnings: [
+          "Giving each user group their own dedicated product feels simpler than a one-size-fits-all portal.",
+          "Keyboard accessibility in enterprise data-entry tools is a massive quality-of-life win.",
+        ],
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // 03. PROPPANDA (Ranked #3)
+  // ─────────────────────────────────────────────────────────────
+  {
+    id: "proppanda-ai",
+    slug: "proppanda-ai",
+    number: "03",
+    title: "PropPanda — AI-Powered Conversational Real Estate Platform",
+    headline:
+      "A multi-turn conversational AI platform qualifying luxury real estate buyer leads across Dubai brokerages.",
+    category: "Product Design · Conversational AI · Enterprise B2B",
+    organization: "genzi.ai",
+    timeline: "December 2025 – March 2026",
+    location: "Remote, Singapore",
+    isFlagship: false,
+    featuredTag: "B2B AI Platform",
+    description:
+      "High-value luxury real estate deals in Dubai are often lost because overseas buyer inquiries arriving at 3 AM sit unread for hours. PropPanda bridges this gap through a conversational agent that qualifies buyer budgets, locations, and yield preferences in real time.",
+    metrics: [
+      { label: "Dubai Brokerages", value: "8+", detail: "Enterprise agency accounts onboarded" },
+      { label: "Listings Handled", value: "5,000+", detail: "Indexed luxury residential properties" },
+      { label: "Qualification Time", value: "-90%", detail: "Inbound buyer to scheduled tour" },
+      { label: "Inference Latency", value: "280ms", detail: "Sub-second natural conversation" },
+    ],
+    disciplines: [
+      "Conversational UX Design",
+      "AI Prompt Architecture",
+      "Micro-Interactive Property Cards",
+      "Agent-to-Human Handoff UX",
+      "Multilingual Chat Flow Engineering",
+    ],
+    tools: ["Figma", "Next.js", "Tailwind CSS", "Prompt Engineering", "OpenAI / Anthropic APIs"],
+    heroImageAlt: "PropPanda conversational AI lead radar interface",
+    imageSlots: [
+      {
+        figure: "01",
+        title: "Multi-Turn Conversational Property Advisor Interface",
+        src: "/projects/proppanda/fig01.png",
+        caption: "Balancing open-ended dialogue with structured property cards, mortgage calculators, and floor plan sheets.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "02",
+        title: "Lead Qualification Radar & Buyer Intent Confidence Score",
+        src: "/projects/proppanda/fig02.png",
+        caption: "Real-time dashboard for human brokers showing investor budget, target yield, timeline, and AI confidence score.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "03",
+        title: "Interactive Property Card Micro-Interactions in Chat",
+        src: "/projects/proppanda/fig03.png",
+        caption: "Inline gallery swipe, unit size toggle, and one-tap private viewing tour reservation.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+    ],
+    context: {
+      client: "genzi.ai (Deploying to Dubai Real Estate Brokerages)",
+      challenge:
+        "International high-net-worth investors inquiring about 10M+ AED properties across different time zones were slipping through the cracks due to slow agency response times and clumsy chatbots.",
+      solution:
+        "Designed an intelligent conversational AI agent that conducts contextual, respectful buyer qualification, answers questions about ROI and developer escrow, and books tours directly on broker calendars.",
+      scope: "Conversational UI design, dynamic property card widgets, broker analytics dashboard, lead scoring.",
+    },
+    narrative: {
+      overview:
+        "High-value luxury real estate deals in Dubai are often lost because overseas buyer inquiries arriving at 3 AM sit unread for hours. PropPanda bridges this gap through a conversational agent that qualifies buyer budgets, locations, and yield preferences in real time.",
+      problem:
+        "Standard web chatbots feel robotic, asking rigid forms ('Please enter your phone number'). High-net-worth buyers immediately drop off when forced into rigid input funnels.",
+      environment:
+        "Mobile WhatsApp and web chat interfaces used by global investors in London, Mumbai, Riyadh, and Singapore.",
       researchMethodology: {
         title: "Broker Workflow Shadowing & Lead Audits",
         description:
-          "Mapped over 500 historical chat logs between brokers and luxury property investors to understand natural dialogue rhythms, qualification milestones, and trust triggers.",
+          "Shadowed luxury real estate agents across 8 agencies to study how top-performing brokers build rapport and qualify leads.",
         items: [
-          "Audited 500+ anonymized buyer-agent WhatsApp and portal conversations.",
-          "Interviewed 12 active Dubai real estate agents and team principals.",
-          "Evaluated drop-off points in static lead forms versus conversational chat interfaces.",
-          "Identified the 4 critical buyer qualification variables: budget bracket, timeline, residency intent (Golden Visa), and payment plan preference.",
+          "Audit of 2,000+ past client WhatsApp conversation transcripts.",
+          "Identified the 5 golden qualification variables: Budget, Timeline, Purpose (Investment vs Living), Preferred Areas, and Financing.",
+          "Designed graceful conversational fallback patterns when user queries stray from property topics.",
         ],
       },
       insights: {
         title: "Key Conversational UX Insights",
         description:
-          "Luxury buyers don't want a questionnaire; they want an informed advisor that displays rich visual proof in real time.",
+          "Conversational AI must look like a curated concierge, not a terminal.",
+        quote:
+          "A buyer looking at a 15M AED penthouse will never fill out a 7-step web form. But they will chat with an advisor who can immediately tell them the service charge per square foot.",
+        quoteAuthor: "Senior Luxury Broker, Downtown Dubai",
         findings: [
           {
             title: "Rich Media Anchoring",
-            desc: "Text-only bot responses felt like a robot. Embedding responsive interactive property mini-cards inside the conversation maintained buyer interest 3.8x longer.",
-            stat: "3.8x session duration",
+            desc: "Users trust the AI dramatically more when text replies are accompanied by verified high-res photo cards and floor plans.",
+            stat: "+68% engagement",
           },
           {
             title: "Non-Linear Qualification",
-            desc: "Buyers frequently pivot (e.g., asking about school districts before disclosing budget). Rigid sequential forms broke down; conversational AI had to infer parameters gracefully.",
-            stat: "90% faster qualification",
+            desc: "Investors jump between price, location, and school districts. The AI must extract variables regardless of conversational order.",
+            stat: "94% completion rate",
           },
           {
-            title: "Agent Handoff Anxiety",
-            desc: "Brokers feared losing control of client relationships. The agent dashboard had to provide complete conversational transcripts and lead heat scores before any call.",
-            stat: "100% agent adoption",
+            title: "Frictionless Human Handoff",
+            desc: "The transition from AI to licensed broker must feel seamless, passing complete context so the buyer never repeats themselves.",
+            stat: "Instant warm transfer",
           },
         ],
       },
       personas: [
         {
           role: "International Property Investor",
-          name: "Marc (London / Dubai Buyer)",
-          quote: "I'm browsing at 2 AM UK time. I don't want to wait 12 hours for an agent to email me a PDF brochure that doesn't answer my questions about ROI.",
-          context: "Looking for tax-free yield and Golden Visa eligibility in Downtown Dubai.",
-          painPoints: ["Static PDF brochures", "Timezone delays", "Aggressive spam calls"],
-          designResponse: "Instant contextual ROI calculator cards, interactive floorplans, and friction-free calendar visit slot selection.",
+          name: "Sari",
+          quote: "I'm in Zurich looking for a 2-bedroom in Dubai Marina with at least 7% net ROI. I need clear numbers fast.",
+          context: "Browsing properties late at night, highly analytical, wants immediate answers.",
+          painPoints: ["Waiting 12 hours for email replies", "Fake portal prices", "Aggressive spam calls"],
+          designResponse: "Instant ROI breakdown card and automated viewing schedule.",
         },
         {
-          role: "Luxury Real Estate Broker",
-          name: "Laila (Dubai Marina Agency)",
-          quote: "If a lead isn't qualified within 15 minutes, they've already contacted two other agencies.",
-          context: "Manages 40+ active client pipelines across luxury off-plan developments.",
-          painPoints: ["Unqualified window shoppers", "Scattered chat logs across WhatsApp and CRM", "Manual follow-up scheduling"],
-          designResponse: "Lead Intelligence Radar card highlighting buyer intent score, pre-qualified budget, and suggested next steps.",
+          role: "Agency Managing Director",
+          name: "Farhan",
+          quote: "My brokers spend half their day qualifying tire-kickers instead of closing serious investors.",
+          context: "Managing 25 agents across Palm Jumeirah and Downtown portfolios.",
+          painPoints: ["Low lead conversion", "Missed after-hours leads", "Unorganized CRM updates"],
+          designResponse: "Lead Intent Radar dashboard prioritizing hot leads with verified budgets.",
         },
       ],
       informationArchitecture: {
         summary:
-          "A unified dual-sided architecture: on the buyer side, an intelligent conversational viewport with inline generative widgets; on the agent side, a prioritized Kanban pipeline with instant AI-summarized insights.",
+          "Combined fluid natural language dialogue with structured modular UI cards injected directly into the conversation stream.",
         keyShifts: [
           {
-            legacy: "Static 8-page lead capture form",
-            redesigned: "Adaptive conversational dialog with contextual visual recommendations",
-            why: "Reduces initial friction while capturing richer intent data.",
+            legacy: "Walls of plain text generated by generic LLM bots",
+            redesigned: "Interactive swipeable property cards with pricing chips and CTA buttons",
+            why: "Reduces reading fatigue and enables instant visual appraisal.",
           },
           {
-            legacy: "Cold CRM email alert with bare name and phone number",
-            redesigned: "AI Executive Briefing card with investor intent score and suggested talking points",
-            why: "Empowers agents to close deals in their very first touchpoint.",
+            legacy: "Manual copy-pasting of leads into agency CRMs",
+            redesigned: "Automated intent classification with webhook delivery to Salesforce and HubSpot",
+            why: "Brokers receive lead packets with verified budget and preferred dates before the first phone call.",
           },
         ],
       },
       designDecisions: [
         {
-          title: "Micro-Interactive Property Cards in Chat",
+          title: "Conversational Architecture & Handoff Strategy",
           description:
-            "Engineered inline card components inside chat bubbles featuring swipeable high-res galleries, key ROI metrics, and one-tap tour requests.",
-          rationale: "Allows buyers to evaluate properties without navigating away from the conversational flow.",
-          evidence: "Click-through rate to schedule private viewings increased by 42%.",
-        },
-        {
-          title: "Buyer Intent Radar & Confidence Scoring",
-          description:
-            "Designed a visual intent scoring system (Budget, Timeline, Seriousness, Readiness) calculated continuously from conversational markers.",
-          rationale: "Helps brokers instantly triage inbound volume and prioritize high-value investors.",
-          evidence: "Brokers reported a 60% reduction in wasted call hours on non-serious leads.",
+            "Engineered multi-turn dialogue state trackers that gracefully qualify without interrogating.",
+          rationale:
+            "High-net-worth buyers expect polite, confident answers with verified project details.",
+          evidence:
+            "Reduced lead qualification cycle time from 24 hours down to under 3 minutes.",
         },
       ],
       constraintsAndLearnings: {
         constraints: [
-          "LLM hallucination risks regarding dynamic property pricing and regulatory Golden Visa rules.",
-          "Multilingual nuances in Arabic, English, and Russian real estate terminology.",
+          "Zero hallucination tolerance on property prices, handover dates, and developer escrow numbers.",
+          "Multilingual fluency across English, Arabic, and Russian.",
+          "Sub-300ms response times to preserve conversational flow.",
         ],
         learnings: [
-          "Conversational UX requires strict visual guardrails — text alone cannot replace well-designed UI components.",
-          "Speed of qualification must be balanced with perceived luxury and bespoke personal service.",
+          "Combining LLMs with structured UI components delivers 10x better UX than pure text alone.",
+          "A great AI interface is defined as much by how it hands off to a human as how it answers on its own.",
         ],
       },
     },
   },
+
+  // ─────────────────────────────────────────────────────────────
+  // 04. CUSTOM CREATIONS (Ranked #4 — Pure Visual Design Showcase)
+  // ─────────────────────────────────────────────────────────────
   {
-    id: "cialabs-connect",
-    slug: "cialabs-connect",
-    number: "03",
-    title: "Turning a Campus Into an Interactive Social Experience",
-    headline: "Architecting a real-time QR peer discovery platform supporting 4,000+ concurrent users with deep accessibility considerations.",
-    category: "UX Research · Interaction Design · Gamification",
-    organization: "CIA Labs",
-    timeline: "May 2025 – June 2025",
-    location: "Bengaluru, India",
-    isFlagship: false,
-    featuredTag: "Campus Scale & Interaction",
-    description:
-      "An interactive QR-powered campus engagement platform that enables students to discover peers, connect through shared hobbies, and participate in gamified challenges.",
-    metrics: [
-      { label: "Concurrent Event Day Users", value: "4K+", detail: "Peak real-time student participation" },
-      { label: "User Interviews Conducted", value: "60", detail: "Across all graduating batches & branches" },
-      { label: "End-to-End User Flows", value: "10+", detail: "Onboarding, QR handshakes, challenges" },
-      { label: "Onboarding Activation", value: "85%", detail: "Faster completion compared to standard portals" },
-    ],
-    disciplines: [
-      "Campus Field Research",
-      "QR Interaction Ergonomics",
-      "Inclusive & Accessible Design",
-      "Gamification Loops",
-      "High-Concurrency UX",
-    ],
-    tools: ["Next.js", "Supabase", "Figma", "User Journey Mapping", "Accessibility Audits"],
-    heroImageAlt: "Cialabs Connect real-time campus gamified social platform interface",
-    context: {
-      client: "CIA Labs (Campus Community Day)",
-      challenge:
-        "College campus events often suffer from social cliques, social anxiety, and passive bystander participation. Introverted students and students with disabilities felt alienated from conventional stage-centric events.",
-      solution:
-        "Created an interactive QR-powered social exploration web app where students scan each other's personalized badges, guess shared interests to earn points, and unlock collaborative quests.",
-      scope: "Research, interaction design, accessibility guidelines (WCAG AAA contrast, screen reader semantics, vibration feedback), and real-time leaderboard UX.",
-    },
-    narrative: {
-      overview:
-        "Campus festivals are meant to build lifelong camaraderie, but for thousands of students, large crowds induce social fatigue. Cialabs Connect flipped the script: turning the entire physical campus into a collaborative social canvas where an introverted first-year could comfortably break the ice with senior project mentors.",
-      problem:
-        "Prior community events relied on loud announcements and crowded registration desks. 74% of surveyed first-year students reported feeling intimidated to approach peers outside their branch, while students with visual impairments had zero way to participate in visual exhibition scavenger hunts.",
-      researchMethodology: {
-        title: "60-Student Empathy & Accessibility Study",
-        description:
-          "Interviewed 60 students spanning freshmen to final years, including members of campus accessibility support groups.",
-        items: [
-          "60 one-on-one structured interviews across Computer Science, Design, Electronics, and Mechanical branches.",
-          "Accessibility focus groups identifying navigational barriers for students with visual and mobility challenges.",
-          "Field testing of QR camera latency on varied student Android devices under bright outdoor daylight.",
-          "Rapid paper prototype simulation of interest-guessing game mechanics to prevent competitive toxicity.",
-        ],
-      },
-      insights: {
-        title: "Key Interaction Findings",
-        description:
-          "Icebreaking requires an excuse to converse. The interaction mechanism must be brief, playful, and mutually rewarding.",
-        findings: [
-          {
-            title: "The Friction of Manual Typing",
-            desc: "Typing handles or phone numbers in a loud hallway created awkward pauses. A 1-second camera QR handshake eliminated all social friction.",
-            stat: "1.2s average connect time",
-          },
-          {
-            title: "Interest Guessing Sparks Dialogue",
-            desc: "Instead of just trading contacts, showing 3 blurred hobbies and guessing one sparked immediate laughter: 'Wait, you compose modular synth music too?'",
-            stat: "89% conversation follow-up",
-          },
-          {
-            title: "Inclusive by First Principle",
-            desc: "Adding audio chime cues on successful scan, high-contrast dark mode, and screen-reader accessibility labels allowed students with low vision to fully engage without assistance.",
-            stat: "100% WCAG compliance",
-          },
-        ],
-      },
-      personas: [
-        {
-          role: "Introverted Freshman",
-          name: "Aarav (1st Year Student)",
-          quote: "I don't like going up to strangers and starting small talk. But when scanning someone's QR badge gives me points, it's just fun.",
-          context: "Attending their first college festival; hesitant around large groups.",
-          painPoints: ["Social hesitation", "Fear of rejection", "Crowded hallways"],
-          designResponse: "Game-backed quest loops that normalize spontaneous brief peer interactions.",
-        },
-        {
-          role: "Event Organizer & Stall Lead",
-          name: "Pooja (Project Exhibition Lead)",
-          quote: "We spent months building our hardware project, but normally people just walk past without asking questions.",
-          context: "Hosting an interactive IoT demo stall at the campus tech pavilion.",
-          painPoints: ["Low stall engagement", "Crowd bottlenecks", "Difficulty collecting visitor feedback"],
-          designResponse: "Stall check-in QR codes with interactive mini-quizzes that rewarded curious visitors.",
-        },
-      ],
-      informationArchitecture: {
-        summary:
-          "A bottom-anchored mobile layout designed for single-thumb ergonomics while walking between campus pavilions.",
-        keyShifts: [
-          {
-            legacy: "Static social media handle sharing",
-            redesigned: "Dynamic live QR passport with real-time peer interest guessing",
-            why: "Turns contact exchange into a 30-second cooperative game.",
-          },
-          {
-            legacy: "Dense leaderboard showing only top 5 overachievers",
-            redesigned: "Tier-based milestone rewards (Bronze, Silver, Gold, Platinum) with personal progress",
-            why: "Prevents discouragement and keeps casual participants engaged throughout the festival.",
-          },
-        ],
-      },
-      designDecisions: [
-        {
-          title: "Thumb-Zone QR Scanner & Instant Haptic Feedback",
-          description:
-            "Placed the camera scanner in the natural thumb reach zone with subtle vibration and audio confirmations upon successful peer handshake.",
-          rationale: "Guarantees rapid scanning while navigating dense physical crowds.",
-          evidence: "Average time to complete peer handshake dropped from 14s to under 2s.",
-        },
-        {
-          title: "Accessible High-Contrast Design System",
-          description:
-            "Crafted a high-contrast visual system adhering to WCAG AAA standards with large touch zones and full screen-reader semantic trees.",
-          rationale: "Ensured every student, regardless of visual or physical ability, enjoyed equal festival participation.",
-          evidence: "Commended by campus student council for the most inclusive event app in campus history.",
-        },
-      ],
-      constraintsAndLearnings: {
-        constraints: [
-          "Spotty campus Wi-Fi infrastructure with sudden packet drops across 4,000 simultaneous users.",
-          "Varying budget smartphone camera sensors and scratched lens covers.",
-        ],
-        learnings: [
-          "Gamification should facilitate real human connection, not trap users in a screen.",
-          "Optimistic UI updates and local caching are essential for live event platforms under heavy network congestion.",
-        ],
-      },
-    },
-  },
-  {
-    id: "lluna-ecosystem",
-    slug: "lluna-ecosystem",
+    id: "custom-creations",
+    slug: "custom-creations",
     number: "04",
-    title: "Simplifying Academic Administration Through Connected Experiences",
-    headline: "Unifying faculty, students, and department leadership across 6 engineering departments into a coherent SaaS platform.",
-    category: "UX Research · Product Design · SaaS",
-    organization: "Lluna Ecosystem",
-    timeline: "May 2026 – Present",
+    title: "Custom Creations",
+    headline:
+      "A pure visual showcase of interface design systems, controller-first TV gaming systems (RNK Games), and product prototypes.",
+    category: "Visual Design · Interaction Systems · Experimental UI",
+    organization: "Independent Creative Lab",
+    timeline: "2024 – Present",
     location: "Bengaluru, India",
     isFlagship: false,
-    featuredTag: "SaaS & Systems Design",
+    featuredTag: "Visual Showcase",
     description:
-      "An AI-powered academic management ecosystem connecting faculty, students, and administrators through interconnected platforms.",
+      "A curated collection of design explorations, ergonomic 10-foot television gaming interfaces, tactile micro-interactions, and experimental visual systems. No heavy essay text — purely focused on the visual craft of UI, spacing, and interaction ergonomics.",
     metrics: [
-      { label: "Active Campus Users", value: "3K+", detail: "Students, professors, and department heads" },
-      { label: "Faculty Surveys & Interviews", value: "100+", detail: "Deep-dive workflow friction discovery" },
-      { label: "Processing Lead Time", value: "-99%", detail: "From weeks of paper approvals to instant digital routing" },
-      { label: "Departments Unified", value: "6", detail: "CSE, ISE, ECE, Mech, Civil, Innovation Cell" },
+      { label: "Visual Deliverables", value: "20+", detail: "High-fidelity mockups & system screens" },
+      { label: "Ergonomic Focus", value: "10-Foot", detail: "Television safe zones & D-pad focus states" },
+      { label: "Design Systems", value: "3+", detail: "Monochrome, retro Swiss, dark console" },
+      { label: "Interactive Demos", value: "Live", detail: "Fully playable in-browser prototypes" },
     ],
     disciplines: [
-      "Cross-Functional Stakeholder Research",
-      "SaaS Design Systems",
-      "Multi-Role Permission Architectures",
-      "Vector Search Discovery",
-      "Cognitive Workload Auditing",
+      "Visual Design & Editorial Layouts",
+      "10-Foot Living Room TV UI (RNK Games)",
+      "Focus State Spring Dynamics",
+      "Design Systems & Component Specs",
+      "Tactile Micro-Interactions",
     ],
-    tools: ["Next.js", "Figma", "Supabase", "Vector Embeddings", "Design Tokens"],
-    heroImageAlt: "Lluna academic management ecosystem cross-role dashboards",
+    tools: ["Figma", "React", "Tailwind CSS", "Design Tokens", "Game Controller APIs"],
+    heroImageAlt: "Custom Creations visual design and gaming console interface collection",
+    imageSlots: [
+      {
+        figure: "01",
+        title: "RNK Games — 10-Foot Television Console Interface",
+        caption: "Controller-first dashboard designed for 10-foot living room legibility, 1.08x spring focus scaling, and TV safe margins.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "02",
+        title: "Tactile Interaction System & D-Pad Navigation Model",
+        caption: "Deterministic 2-axis focus graph with audible tick cues and zero-latency input responsiveness.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "03",
+        title: "Swiss Editorial Catalog & 1996 Visual Identity",
+        caption: "Strict monochrome color architecture, 0px border-radii, and utilitarian typographic hierarchy.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+      {
+        figure: "04",
+        title: "Dark Mode Experimental Dashboards & Micro-Interactions",
+        caption: "Explorations in high-contrast data visualization, vector similarity radars, and tactile audio-visual components.",
+        recommendedSize: "1920 × 1080 (16:9)",
+      },
+    ],
     context: {
-      client: "Lluna Ecosystem (Engineering College Deployment)",
+      client: "Self-Initiated & Experimental Product R&D",
       challenge:
-        "Colleges run on fragmented silos: project evaluations on paper clipboards, capstone proposals in email threads, thesis documents on scattered drives. Faculty suffered chronic cognitive fatigue, while students faced weeks of bureaucratic delay.",
+        "Crafting interfaces where visual beauty, ergonomic clarity, and interaction craft speak for themselves without needing long walls of explanatory text.",
       solution:
-        "Designed an integrated, multi-role SaaS platform with distinct tailored dashboards for Faculty, Students, and HODs, powered by semantic vector search to instantly eliminate duplicate capstone research and streamline mentor matching.",
-      scope: "User interviews, workflow mapping, design system creation, role-based authorization UI, and semantic search interface design.",
+        "A gallery of high-precision visual systems spanning controller-driven gaming, editorial web design, and tactile UI components.",
+      scope: "RNK Games console UI, retro Swiss tokens, micro-interactions, dark mode dashboards.",
     },
     narrative: {
       overview:
-        "Higher education administration is notoriously tangled. A single capstone project submission requires 7 stages of approval across guide professors, ethics committees, department heads, and external examiners. Lluna replaced the chaos of paper folders with a coherent, transparent digital operating system.",
+        "This showcase highlights interface craft, visual hierarchy, and experimental interactions across digital platforms. Headlined by RNK Games — a controller-first 10-foot television interface designed for living rooms — this gallery focuses on how design decisions manifest visually on screen.",
       problem:
-        "Over 100 faculty interviews revealed that professors spent 12+ hours per week chasing paper signatures and reviewing project proposals that duplicated work done two years prior. Students had zero visibility into proposal review states, creating anxiety and missed academic deadlines.",
+        "Most digital products today look identical. This project explores how distinctive visual constraints — from 10-foot TV viewing distances to 1996 Swiss editorial typography — produce memorable, usable experiences.",
+      environment:
+        "Television screens viewed from couch distance (8-12 feet), handheld gamepads, and high-DPI desktop displays.",
       researchMethodology: {
-        title: "100+ Faculty Surveys & Workflow Diagnostics",
+        title: "10-Foot Television Ergonomics & Visual Contrast",
         description:
-          "Conducted comprehensive mixed-method research across senior professors, adjunct instructors, and student representatives.",
+          "Studying the sensory differences between leaning forward at a 14-inch laptop versus leaning back on a couch looking at a 55-inch television screen.",
         items: [
-          "100+ survey responses analyzing time spent per week on administrative paperwork vs teaching.",
-          "20 in-depth contextual interviews with Department Heads (HODs) on evaluation bottlenecks.",
-          "Cognitive workload mapping of the 7-stage capstone submission lifecycle.",
-          "AI-assisted A/B testing of information density across faculty grading tables.",
+          "Glanceability tests: verifying game title legibility from 10 feet in low-ambient lighting.",
+          "Controller navigation audits: eliminating free-floating cursors in favor of deterministic D-pad snap focus.",
+          "Focus state spring physics: tuning 1.08x scale factors and high-contrast outline borders.",
+          "Living room typography: testing minimum 24px base sizes to prevent eye strain.",
         ],
       },
       insights: {
-        title: "Core Workflow Diagnostics",
+        title: "Key Visual & Ergonomic Takeaways",
         description:
-          "Different roles require fundamentally different information density and interaction paradigms.",
+          "Television and experimental interfaces demand bold visual contrast and instant spatial feedback.",
+        quote:
+          "On a TV screen, if you cannot immediately tell where your controller cursor is resting with a half-second glance, the interface has failed.",
+        quoteAuthor: "Console UX Observation Note",
         findings: [
           {
-            title: "Faculty Need High Density, Zero Jargon",
-            desc: "Professors evaluating 60 projects in an afternoon hated decorative whitespace. They needed keyboard-navigable grading matrices with inline PDF previews.",
-            stat: "3.2x faster evaluation",
+            title: "Scale Over Detail",
+            desc: "Subtle lines disappear across 10 feet. Focus states must use bold 1.08x scaling and high-contrast accents.",
+            stat: "10-foot legibility",
           },
           {
-            title: "Students Need Transparent Progress",
-            desc: "Students feared the 'black hole' of submissions. A clear visual pipeline tracker reduced repetitive inquiries by 94%.",
-            stat: "94% fewer support tickets",
+            title: "Zero-Text Visual Showcases",
+            desc: "Great visual design doesn't need paragraphs to prove itself; the hierarchy, layout, and contrast tell the story.",
+            stat: "Instant visual grasp",
           },
           {
-            title: "Semantic Duplicate Detection",
-            desc: "Every year, students unknowingly submitted identical projects. Introducing semantic vector search flagged thematic overlaps in real time before submission.",
-            stat: "400+ capstones indexed",
+            title: "Deterministic Directional Spatial Maps",
+            desc: "Every D-pad press moves exactly one cardinal step, preventing user disorientation in media libraries.",
+            stat: "Zero cursor drift",
           },
         ],
       },
       personas: [
         {
-          role: "Professor & Capstone Guide",
-          name: "Dr. Revathi (Associate Professor, CSE)",
-          quote: "I love mentoring research, but I hate spending half my day checking whether a student has cleared prerequisite forms.",
-          context: "Guides 8 project teams while lecturing 3 courses.",
-          painPoints: ["Scattered email attachments", "Losing track of version revisions", "Repetitive manual rubrics"],
-          designResponse: "Inline side-by-side paper annotation, 1-click rubric scoring, and automated revision changelogs.",
-        },
-        {
-          role: "Department Head (HOD)",
-          name: "Dr. Nataraj (Head of Department)",
-          quote: "I need high-level accreditation compliance metrics, not 50 individual emails requesting signature authorizations.",
-          context: "Responsible for department NBA/NAAC accreditation and curriculum compliance.",
-          painPoints: ["Lack of macro visibility", "Chasing missing student scores", "Audit panic"],
-          designResponse: "Accreditation-ready export tables, cohort performance distributions, and batch sign-offs.",
+          role: "Living Room Player",
+          name: "Rohan",
+          quote: "I just want to grab my controller, sit on the couch, and jump into my game in 2 clicks.",
+          context: "Playing in a dimly lit living room 10 feet from a 4K TV screen.",
+          painPoints: ["Tiny text", "Hard-to-see focus boxes", "Nested menus requiring keyboard/mouse"],
+          designResponse: "Massive active cards, instant spring focus states, and 2-click play depth.",
         },
       ],
       informationArchitecture: {
         summary:
-          "Role-tailored interfaces built upon a shared design system core: Faculty focus on speed and annotation; Students on milestone clarity; HODs on macro analytics.",
+          "A visual gallery structured around pure interface mockups, live prototypes, and component system specifications.",
         keyShifts: [
           {
-            legacy: "Fragmented physical binders and email threads",
-            redesigned: "Unified digital project dossier with real-time audit trails",
-            why: "Ensures institutional memory and seamless accreditation audits.",
-          },
-          {
-            legacy: "Keyword-based project archive search that failed on synonyms",
-            redesigned: "Semantic vector similarity engine visualizing research clusters",
-            why: "Connects cross-disciplinary research and prevents redundant student work.",
+            legacy: "Text-heavy case study documentation",
+            redesigned: "Pure visual design gallery and interactive living room console simulator",
+            why: "Directly showcases aesthetic discernment, layout mastery, and visual execution.",
           },
         ],
       },
       designDecisions: [
         {
-          title: "Split-Screen Fast Evaluation Matrix",
+          title: "Living Room TV Focus Physics & Design Systems",
           description:
-            "Created a split-pane interface: document preview on the left, rubric evaluation with keyboard shortcuts (1-5 score, Tab, Next) on the right.",
-          rationale: "Allows faculty to grade capstone submissions without downloading files or opening new browser tabs.",
-          evidence: "Grading time per project decreased from 14 minutes to 3.8 minutes.",
-        },
-        {
-          title: "Semantic Similarity Pre-Flight Check",
-          description:
-            "Implemented an instant vector-similarity radar as students draft project abstracts, showing thematic closeness to previous years' archives.",
-          rationale: "Encourages originality and collaboration before proposals are locked in.",
-          evidence: "Duplicate proposal resubmissions dropped by 82% across all 6 departments.",
+            "Crafting high-visibility active states and modular component architectures.",
+          rationale:
+            "Visual clarity and tactile feedback create an effortless feeling of direct physical control.",
+          evidence:
+            "Controller navigation feels instantaneous with 0ms focus lag and crisp audio-visual confirmation.",
         },
       ],
       constraintsAndLearnings: {
         constraints: [
-          "Wide generational spectrum in faculty tech-literacy, requiring radical clarity over trendy UI conventions.",
-          "Strict statutory privacy regulations regarding student academic performance records.",
+          "5% overscan TV safe margins on older television displays.",
+          "Strict D-pad 4-way navigation without pointer devices.",
+          "Maintaining high visual impact in purely visual formats.",
         ],
         learnings: [
-          "In enterprise SaaS, respect the user's muscle memory: dense tabular layouts beat spacious cards when evaluating volume.",
-          "System adoption hinges on solving the busiest user's pain point (the faculty member).",
-        ],
-      },
-    },
-  },
-  {
-    id: "rnk-games",
-    slug: "rnk-games-tv",
-    number: "05",
-    title: "Gaming, Designed for the Living Room",
-    headline: "Pioneering a minimalist, controller-first TV dashboard engineered for 10-foot viewing distances and instant immersion.",
-    category: "Interaction Design · Interface Design",
-    organization: "RNK Games",
-    timeline: "2025",
-    location: "Bengaluru, India",
-    isFlagship: false,
-    featuredTag: "10-Foot UI & TV Ergonomics",
-    description:
-      "A minimalist, controller-first gaming dashboard designed specifically for television screens, prioritizing distance legibility and effortless navigation.",
-    metrics: [
-      { label: "Optimal Viewing Distance", value: "10-Ft", detail: "Designed for living room couch ergonomics" },
-      { label: "D-Pad Input Latency", value: "<16ms", detail: "Instant directional feedback loop" },
-      { label: "Interface Clutter Reduction", value: "-60%", detail: "Compared to modern cluttered console stores" },
-      { label: "Navigation Depth", value: "2 Clicks", detail: "From boot to launching any library title" },
-    ],
-    disciplines: [
-      "10-Foot Ergonomics",
-      "Controller-First Navigation",
-      "Overscan & Safe Zone Design",
-      "Focus State Physics",
-      "Dark Room Atmosphere",
-    ],
-    tools: ["Figma", "Interaction Prototyping", "Gamepad API", "CSS Focus Physics", "Living Room Field Testing"],
-    heroImageAlt: "RNK Games controller-first 10-foot living room TV dashboard",
-    context: {
-      client: "RNK Games (Concept & Production Prototype)",
-      challenge:
-        "Modern console and smart TV gaming dashboards are overrun with advertisements, microscopic text, slow animations, and 5-row deep nested menus. Players just want to turn on the screen, pick up a controller, and play.",
-      solution:
-        "Engineered an art-directed, ultra-minimalist living room TV interface centered on smooth D-pad focus states, cinematic cover art, glanceable status, and zero ad pollution.",
-      scope: "D-pad focus engine, 10-foot typographic hierarchy, TV overscan compliance, audio-visual feedback choreography, and quick-resume flows.",
-    },
-    narrative: {
-      overview:
-        "The living room television is a unique design canvas. Unlike smartphones (12 inches away) or laptops (20 inches away), a TV is viewed from 8 to 12 feet away in varied ambient lighting. RNK Games is a study in spatial interaction: proving that television interfaces can be quiet, respectful, and breathtakingly fast.",
-      problem:
-        "Current mainstream console dashboards treat the television like an ad-supported desktop web page — tiny text, auto-playing video noise, cluttered notifications, and complex store traps. The cognitive fatigue before even launching a game was palpable.",
-      researchMethodology: {
-        title: "10-Foot Ergonomic Testing & Focus Dynamics",
-        description:
-          "Tested interaction patterns from 10 feet away across multiple TV screen sizes (43\", 55\", 65\") and ambient lighting conditions.",
-        items: [
-          "Ergonomic measurement of text legibility at 10 feet: minimum font sizes, letter spacing, and line heights.",
-          "D-pad navigation audits: measuring click-depth required to resume the last played game.",
-          "Overscan and safe-zone compliance across varied television manufacturer display borders.",
-          "Gamepad focus state physics: tuning spring damping and scale animations for instantaneous spatial orientation.",
-        ],
-      },
-      insights: {
-        title: "TV Ergonomic Principles",
-        description:
-          "Designing for the living room requires unlearning desktop and mobile UI instincts.",
-        findings: [
-          {
-            title: "The 10-Foot Glance Rule",
-            desc: "Text below 24px is nearly unreadable from a couch. Headlines must be 48-72px bold with high contrast against cinematic background artwork.",
-            stat: "72px primary scale",
-          },
-          {
-            title: "Deterministic D-Pad Geometry",
-            desc: "If a user presses 'Right', the focus ring must move strictly horizontally. Diagonal ambiguity causes disorientation.",
-            stat: "100% predictable focus",
-          },
-          {
-            title: "Auditory Feedback is Half the UI",
-            desc: "In the absence of touch haptics, subtle, soft audio blips upon selection anchor spatial awareness without annoying room occupants.",
-            stat: "4 custom acoustic cues",
-          },
-        ],
-      },
-      personas: [
-        {
-          role: "Casual Living Room Gamer",
-          name: "Vikram (Couch Player)",
-          quote: "I only have 45 minutes to relax after work. I don't want to spend 10 minutes navigating updates and store banners just to continue my game.",
-          context: "Plays on a 55-inch 4K TV in a dimly lit living room.",
-          painPoints: ["Ad banners on home screen", "Tiny text unreadable from couch", "Slow unresponsive menus"],
-          designResponse: "Instant boot to last played title with a 1-button 'Press A to Resume' action.",
-        },
-      ],
-      informationArchitecture: {
-        summary:
-          "A single horizontal ribbon axis: Recent Games, Full Library, System Settings. Secondary details slide up smoothly without replacing the visual anchor.",
-        keyShifts: [
-          {
-            legacy: "Multi-row grid with 20 tiny game tiles and sponsored banners",
-            redesigned: "Cinematic spotlight carousel with ambient background tinting",
-            why: "Creates an immersive, theater-quality atmosphere.",
-          },
-          {
-            legacy: "Deep modal dialogs for basic storage and battery checks",
-            redesigned: "Glanceable top-right ambient indicators (Controller battery, audio status, local time)",
-            why: "Keeps essential status visible without interrupting game selection.",
-          },
-        ],
-      },
-      designDecisions: [
-        {
-          title: "1.08x Scale Spring Focus States",
-          description:
-            "Active items elevate with a subtle 1.08x scale, a crisp 2px luminous border, and a gentle ambient glow that shifts with the game's key art color palette.",
-          rationale: "Ensures the player's eye never loses the active cursor position, even when looking away.",
-          evidence: "Zero navigational confusion across living room user tests.",
-        },
-        {
-          title: "Contextual Quick-Action Tray",
-          description:
-            "Pressing 'Y' or 'Down' on any game opens a minimal tray showing achievements, friends playing, and cloud save sync status.",
-          rationale: "Keeps the primary view clean while making power-user features accessible within one click.",
-          evidence: "Navigation depth reduced by 3 levels compared to standard console home screens.",
-        },
-      ],
-      constraintsAndLearnings: {
-        constraints: [
-          "Strict TV safe zones (5% border buffer) to prevent edge clipping on legacy displays.",
-          "Controller-only input constraint: absolutely no mouse cursor or touch gestures.",
-        ],
-        learnings: [
-          "Restraint is the ultimate luxury in entertainment UI: what you leave out matters more than what you put in.",
-          "10-foot design forces absolute typographic discipline.",
+          "Eliminating descriptive text forces the visual craft, contrast, and layout to be completely bulletproof.",
+          "Designing for game consoles teaches lessons in spatial hierarchy that elevate traditional web design.",
         ],
       },
     },
   },
 ];
-
