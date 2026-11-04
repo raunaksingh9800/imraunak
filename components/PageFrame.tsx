@@ -3,6 +3,7 @@
 import React from "react";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
+import { FrameIntroAnimation } from "./FrameIntroAnimation";
 
 interface PageFrameProps {
   children: React.ReactNode;
@@ -10,7 +11,9 @@ interface PageFrameProps {
 
 export function PageFrame({ children }: PageFrameProps) {
   return (
-    <div className="min-h-screen bg-[#E5E5E5] py-0 sm:py-3 md:py-6 px-0 sm:px-3 md:px-6">
+    <div className="min-h-screen bg-[#E5E5E5] py-0 sm:py-3 md:py-6 px-0 sm:px-3 md:px-6 relative">
+      <FrameIntroAnimation />
+
       {/* 
         Literal Page Frame:
         Desktop: 8px black frame
