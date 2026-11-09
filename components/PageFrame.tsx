@@ -11,7 +11,7 @@ interface PageFrameProps {
 
 export function PageFrame({ children }: PageFrameProps) {
   return (
-    <div className="min-h-screen bg-[#E5E5E5] py-0 sm:py-3 md:py-6 px-0 sm:px-3 md:px-6 relative overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-[#E5E5E5] py-0 sm:py-3 md:py-6 px-0 sm:px-3 md:px-6 relative w-full max-w-full">
       {/* Keyboard Accessibility: Skip to Content */}
       <a
         href="#main-content"
@@ -29,11 +29,11 @@ export function PageFrame({ children }: PageFrameProps) {
         Tablet: 4px solid black border (Spacing-50)
         Mobile: 2px solid black border (Spacing-25)
       */}
-      <div className="max-w-[1080px] w-full mx-auto bg-black p-[2px] sm:p-[4px] md:p-[8px] shadow-hard overflow-x-hidden">
+      <div className="max-w-[1080px] w-full mx-auto bg-black p-[2px] sm:p-[4px] md:p-[8px] shadow-hard">
         {/* Pure White Interior Canvas */}
-        <div className="bg-white min-h-[94vh] text-black flex flex-col justify-between overflow-x-hidden">
+        <div className="bg-white min-h-[94vh] text-black flex flex-col justify-between">
           <Navigation />
-          <main id="main-content" className="flex-1 w-full bg-white outline-none overflow-x-hidden">
+          <main id="main-content" className="flex-1 w-full bg-white outline-none">
             {children}
           </main>
           <Footer />

@@ -72,23 +72,12 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 space-y-12 sm:space-y-16 w-full max-w-full overflow-x-hidden">
+    <div className="p-4 sm:p-6 md:p-8 space-y-12 sm:space-y-16 w-full max-w-full">
       {/* ───────────────────────────────────────────────────────────
           1. SIMPLIFIED, DECLUTTERED HERO SECTION
       ──────────────────────────────────────────────────────────── */}
       <section className="border-b border-black pb-10 sm:pb-14 w-full max-w-full">
         <div className="space-y-6 max-w-4xl w-full min-w-0">
-          {/* Vocational Availability Ticker & Location Coordinates */}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-black/15 pb-2 text-xs font-mono text-mid-gray">
-            <div className="flex items-center gap-2 text-black font-semibold">
-              <span className="w-2 h-2 bg-red animate-pulse inline-block shrink-0" />
-              <span>CURRENT STATUS: AVAILABLE FOR PRODUCT &amp; UX INQUIRIES</span>
-            </div>
-            <span className="hidden min-[520px]:inline text-mid-gray">
-              SYS // 12.9716° N, 77.5946° E
-            </span>
-          </div>
-
           {/* Subtle Credibility & Context Line */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 font-heading text-xs uppercase tracking-wider text-mid-gray">
             <div className="flex items-center gap-2 text-black font-bold flex-wrap">
@@ -151,19 +140,20 @@ export default function HomePage() {
       {/* ───────────────────────────────────────────────────────────
           2. TWO-COLUMN LAYOUT: Compact Left Rail + Right Column
       ──────────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-10 items-start">
         {/* ─────────────────────────────────────────────────────────
-            LEFT RAIL (~28% / 4 Cols on Desktop)
+            LEFT RAIL (~28% / 4 Cols on Desktop & Tablet)
+            Anchored Sticky Directory
         ─────────────────────────────────────────────────────────── */}
-        <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[72px] self-start">
+        <aside className="md:col-span-4 space-y-6 md:sticky md:top-[72px] self-start z-30">
           {/* Compact Monochrome Directory */}
           <PortfolioIndex />
         </aside>
 
         {/* ─────────────────────────────────────────────────────────
-            RIGHT COLUMN (~72% / 8 Cols on Desktop)
+            RIGHT COLUMN (~72% / 8 Cols on Desktop & Tablet)
         ─────────────────────────────────────────────────────────── */}
-        <section className="lg:col-span-8 space-y-14 sm:space-y-18">
+        <section className="md:col-span-8 space-y-14 sm:space-y-18 min-w-0">
           {/* ───────────────────────────────────────────────────────
               SECTION 01: SELECTED WORK
           ───────────────────────────────────────────────────────── */}
