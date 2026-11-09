@@ -2,26 +2,27 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export function FrameIntroAnimation() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [isDone, setIsDone] = useState(!isHome);
+  const shouldReduceMotion = useReducedMotion();
+  const [isDone, setIsDone] = useState(!isHome || Boolean(shouldReduceMotion));
 
   useEffect(() => {
-    if (!isHome) {
+    if (!isHome || shouldReduceMotion) {
       setIsDone(true);
       return;
     }
 
-    // Runs once on homepage entry
+    // Runs once on initial homepage entry
     const timer = setTimeout(() => {
       setIsDone(true);
-    }, 1300);
+    }, 1000);
 
     return () => clearTimeout(timer);
-  }, [isHome]);
+  }, [isHome, shouldReduceMotion]);
 
   if (!isHome || isDone) return null;
 
@@ -32,21 +33,21 @@ export function FrameIntroAnimation() {
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
         className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden"
       >
         {/* Desk background layer */}
         <motion.div
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
-          transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.45, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
           className="absolute inset-0 bg-[#E5E5E5]"
         />
 
         {/* 
           The Black Frame:
           Starts all over the page (fixed inset-0, solid black with 16px border),
-          then animates inward into its exact bounded position around the homepage.
+          then contracts inward into its exact bounded position around the homepage.
         */}
         <motion.div
           initial={{
@@ -66,9 +67,9 @@ export function FrameIntroAnimation() {
             backgroundColor: "rgba(0, 0, 0, 0)",
           }}
           transition={{
-            duration: 0.85,
-            delay: 0.12,
-            ease: [0.16, 1, 0.3, 1], // Swiss editorial cubic-bezier
+            duration: 0.65,
+            delay: 0.08,
+            ease: [0.23, 1, 0.32, 1], // Emil Kowalski / Swiss editorial cubic-bezier
           }}
           className="absolute border-black shadow-hard"
         />
@@ -76,4 +77,3 @@ export function FrameIntroAnimation() {
     </AnimatePresence>
   );
 }
-

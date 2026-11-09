@@ -71,46 +71,46 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 space-y-12 sm:space-y-16">
+    <div className="p-4 sm:p-6 md:p-8 space-y-12 sm:space-y-16 w-full max-w-full overflow-x-hidden">
       {/* ───────────────────────────────────────────────────────────
           1. SIMPLIFIED, DECLUTTERED HERO SECTION
       ──────────────────────────────────────────────────────────── */}
-      <section className="border-b border-black pb-10 sm:pb-14">
-        <div className="space-y-6 max-w-4xl">
+      <section className="border-b border-black pb-10 sm:pb-14 w-full max-w-full">
+        <div className="space-y-6 max-w-4xl w-full min-w-0">
           {/* Subtle Credibility & Context Line */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 font-heading text-xs uppercase tracking-wider text-mid-gray">
-            <div className="flex items-center gap-2.5 text-black font-bold shrink-0">
+            <div className="flex items-center gap-2 text-black font-bold flex-wrap">
               <img
                 src="/itc-logo.svg"
                 alt="ITC Limited"
-                className="h-7 w-auto object-contain inline-block shrink-0"
+                className="h-6 sm:h-7 w-auto object-contain inline-block shrink-0"
               />
               <span className="text-xs sm:text-sm font-black tracking-wider text-black">
                 Currently at ITC Limited · Technology Intern
               </span>
             </div>
             <span className="hidden sm:inline text-black/30">|</span>
-            <div className="text-mid-gray break-words">
+            <div className="text-mid-gray">
               <span>Bengaluru, India </span>
             </div>
           </div>
 
           {/* Primary Visual Anchor: RAUNAK SINGH */}
-          <h1 className="font-display text-3xl min-[380px]:text-4xl min-[480px]:text-5xl sm:text-7xl md:text-8xl lg:text-[5.75rem] font-black text-black tracking-tight leading-[0.92] uppercase m-0 select-none break-words">
+          <h1 className="font-display text-3xl min-[400px]:text-4xl min-[480px]:text-5xl sm:text-7xl lg:text-8xl font-black text-black tracking-tight leading-[0.92] uppercase m-0 select-none break-words [text-wrap:balance]">
             Raunak Singh.
           </h1>
 
           {/* Supporting Statement */}
-          <p className="font-body text-xl sm:text-2xl md:text-3xl text-black leading-snug font-normal max-w-3xl m-0">
+          <p className="font-body text-xl sm:text-2xl md:text-3xl text-black leading-snug font-normal max-w-3xl m-0 [text-wrap:balance]">
             I design, research, and build digital experiences that{" "}
-            <span className="italic font-serif">make complex things feel simple.</span>
+            <span className="font-serif">make complex things feel simple.</span>
           </p>
 
           {/* Only Three Primary Actions */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3 w-full">
             <a
               href="#work"
-              className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-zinc-800 text-white px-5 py-3 border border-black no-underline shadow-hard-sm inline-flex items-center gap-2"
+              className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-red text-white hover:text-white px-4 sm:px-5 py-2.5 sm:py-3 border border-black hover:border-red no-underline shadow-hard-sm inline-flex items-center gap-2 active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               <span>Explore Work</span>
               <ArrowDown className="w-3.5 h-3.5 text-white" />
@@ -120,15 +120,15 @@ export default function HomePage() {
               href="/raunak-singh-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black px-5 py-3 border border-black no-underline shadow-hard-sm inline-flex items-center gap-2"
+              className="group font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black hover:text-red px-4 sm:px-5 py-2.5 sm:py-3 border border-black no-underline shadow-hard-sm inline-flex items-center gap-2 active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               <span>Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray group-hover:text-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
             </a>
 
             <a
               href="#contact"
-              className="font-heading font-bold text-xs uppercase tracking-wider text-black hover:text-red px-3 py-3 no-underline transition-colors"
+              className="font-heading font-bold text-xs uppercase tracking-wider text-black hover:text-red px-3 py-2 sm:py-3 no-underline active:translate-y-[1px] transition-colors duration-150"
             >
               Get in Touch →
             </a>
@@ -146,9 +146,6 @@ export default function HomePage() {
         <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-[72px] self-start">
           {/* Compact Monochrome Directory */}
           <PortfolioIndex />
-
-          {/* Single Red Callout (Restrained single accent usage) */}
-
         </aside>
 
         {/* ─────────────────────────────────────────────────────────
@@ -198,7 +195,7 @@ export default function HomePage() {
                       />
                     </div>
                   </div>
-                  <span className="font-heading text-[11px] text-mid-gray uppercase tracking-wider mt-2 text-center block">
+                  <span className="font-heading text-xs text-mid-gray uppercase tracking-wider mt-2 text-center block">
                     Raunak Singh · Class of 2028
                   </span>
                 </div>
@@ -209,11 +206,11 @@ export default function HomePage() {
                     I&apos;m Raunak, a Computer Science &amp; Design undergraduate based in Bengaluru.
                   </p>
 
-                  <p className="m-0">
+                  <p className="m-0 [text-wrap:pretty]">
                     I enjoy understanding how people interact with technology, identifying friction in complex workflows, and designing experiences that feel intuitive.
                   </p>
 
-                  <p className="m-0">
+                  <p className="m-0 [text-wrap:pretty]">
                     My work spans UX research, interaction design, product development, and engineering. I enjoy getting involved beyond the interface — from interviewing users and mapping journeys to understanding the systems that power the experience.
                   </p>
 
@@ -229,7 +226,7 @@ export default function HomePage() {
                   <strong className="font-heading font-bold uppercase text-black block tracking-wider">
                     01 · Empirical Inquiry
                   </strong>
-                  <p className="text-mid-gray m-0 leading-normal">
+                  <p className="text-mid-gray m-0 leading-normal [text-wrap:pretty]">
                     Field interviews with factory workers in gloves, observation on docks, and quantitative analysis of 30K+ transaction records.
                   </p>
                 </div>
@@ -238,7 +235,7 @@ export default function HomePage() {
                   <strong className="font-heading font-bold uppercase text-black block tracking-wider">
                     02 · Systemic Architecture
                   </strong>
-                  <p className="text-mid-gray m-0 leading-normal">
+                  <p className="text-mid-gray m-0 leading-normal [text-wrap:pretty]">
                     Designing structured information models, intuitive workflows, and low-cognitive-load states that prevent user error.
                   </p>
                 </div>
@@ -247,7 +244,7 @@ export default function HomePage() {
                   <strong className="font-heading font-bold uppercase text-black block tracking-wider">
                     03 · Technical Feasibility
                   </strong>
-                  <p className="text-mid-gray m-0 leading-normal">
+                  <p className="text-mid-gray m-0 leading-normal [text-wrap:pretty]">
                     Building in production Next.js and TypeScript ensures designs balance UX craft with real engineering constraints.
                   </p>
                 </div>
@@ -269,8 +266,9 @@ export default function HomePage() {
               {WORK_EXPERIENCE.map((exp) => (
                 <div
                   key={exp.id}
-                  className={`border border-black p-5 shadow-hard-sm ${exp.isHighPriority ? "bg-white border-l-4 border-l-red" : "bg-white"
-                    }`}
+                  className={`border border-black p-5 shadow-hard-sm transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 ${
+                    exp.isHighPriority ? "bg-white border-l-4 border-l-red" : "bg-white"
+                  }`}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-black/20 pb-2 mb-3">
                     <div className="flex items-center gap-2">
@@ -278,7 +276,7 @@ export default function HomePage() {
                         {exp.company}
                       </h3>
                       {exp.isHighPriority && (
-                        <span className="font-heading font-black text-[10px] bg-red text-white px-2 py-0.5 uppercase tracking-wider">
+                        <span className="font-heading font-black text-xs bg-red text-white px-2 py-0.5 uppercase tracking-wider">
                           Current Focus
                         </span>
                       )}
@@ -292,7 +290,7 @@ export default function HomePage() {
                     Role: {exp.role}
                   </div>
 
-                  <p className="font-body text-sm text-black leading-relaxed mb-3 m-0">
+                  <p className="font-body text-sm text-black leading-relaxed mb-3 m-0 [text-wrap:pretty]">
                     {exp.summary}
                   </p>
 
@@ -322,7 +320,7 @@ export default function HomePage() {
               {LEADERSHIP_EXPERIENCE.map((lead) => (
                 <div
                   key={lead.id}
-                  className="border border-black bg-white p-4 shadow-hard-sm flex flex-col justify-between"
+                  className="border border-black bg-white p-4 shadow-hard-sm flex flex-col justify-between transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5"
                 >
                   <div>
                     <div className="flex items-baseline justify-between border-b border-black/20 pb-1 mb-2 font-heading text-xs">
@@ -334,22 +332,22 @@ export default function HomePage() {
                       {lead.organization}
                     </h4>
 
-                    <p className="font-body text-xs text-mid-gray leading-relaxed mb-3">
+                    <p className="font-body text-xs text-mid-gray leading-relaxed mb-3 [text-wrap:pretty]">
                       {lead.description}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-1 border border-black/20 bg-light-gray p-1.5 text-center font-heading text-[10px] mb-3">
+                    <div className="grid grid-cols-3 gap-1 border border-black/20 bg-light-gray p-2 text-center font-heading text-xs mb-3">
                       {lead.metrics.map((m, idx) => (
                         <div key={idx} className="border-r last:border-r-0 border-black/20">
                           <span className="font-black text-xs text-black block">{m.value}</span>
-                          <span className="text-mid-gray uppercase block leading-none">{m.label}</span>
+                          <span className="text-mid-gray uppercase block text-[10px] sm:text-xs leading-none mt-0.5">{m.label}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {lead.recognition && (
-                    <div className="border border-black bg-light-gray p-1.5 font-heading font-bold text-[10px] text-black uppercase tracking-wider text-center">
+                    <div className="border border-black bg-light-gray p-1.5 font-heading font-bold text-xs text-black uppercase tracking-wider text-center">
                       ★ {lead.recognition}
                     </div>
                   )}
@@ -372,10 +370,10 @@ export default function HomePage() {
               {SKILL_CATEGORIES.map((cat, i) => (
                 <div
                   key={cat.category}
-                  className="border border-black bg-white p-4 shadow-hard-sm space-y-2"
+                  className="border border-black bg-white p-4 shadow-hard-sm space-y-2 transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5"
                 >
                   <div className="border-b border-black/20 pb-1">
-                    <span className="font-heading font-black text-[10px] text-red uppercase block">
+                    <span className="font-heading font-black text-xs text-red uppercase block">
                       0{i + 1}
                     </span>
                     <h4 className="font-heading font-black text-xs uppercase text-black m-0">
@@ -387,7 +385,7 @@ export default function HomePage() {
                     {cat.skills.map((skill) => (
                       <div
                         key={skill}
-                        className="py-0.5 border-b border-black/10 last:border-b-0 text-black font-semibold"
+                        className="py-1 border-b border-black/10 last:border-b-0 text-black font-semibold"
                       >
                         • {skill}
                       </div>
@@ -412,10 +410,10 @@ export default function HomePage() {
               {ACHIEVEMENTS.map((ach) => (
                 <div
                   key={ach.id}
-                  className="p-3 sm:p-3.5 hover:bg-light-gray flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 transition-colors"
+                  className="p-3 sm:p-3.5 hover:bg-light-gray flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 transition-colors duration-150"
                 >
                   <div>
-                    <span className="font-heading font-black text-[10px] text-red uppercase tracking-wider mr-2">
+                    <span className="font-heading font-black text-xs text-red uppercase tracking-wider mr-2">
                       [{ach.tag}]
                     </span>
                     <span className="font-heading font-bold text-xs uppercase text-black">
@@ -444,14 +442,14 @@ export default function HomePage() {
             />
 
             <div className="border border-black bg-white p-5 sm:p-6 shadow-hard-sm space-y-5">
-              <p className="font-body text-base text-black leading-relaxed max-w-2xl m-0">
+              <p className="font-body text-base text-black leading-relaxed max-w-2xl m-0 [text-wrap:pretty]">
                 I&apos;m always interested in thoughtful conversations, challenging problems, and opportunities to build better digital experiences.
               </p>
 
               {/* Direct channels grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-heading">
-                <div className="border border-black/30 p-2.5 bg-light-gray/40">
-                  <span className="text-[10px] text-mid-gray uppercase tracking-wider block mb-0.5">
+                <div className="border border-black/30 p-3 bg-light-gray/40 hover:border-black hover:bg-light-gray transition-colors duration-150 shadow-hard-sm">
+                  <span className="text-xs text-mid-gray uppercase tracking-wider block mb-0.5">
                     Direct Email:
                   </span>
                   <a
@@ -462,8 +460,8 @@ export default function HomePage() {
                   </a>
                 </div>
 
-                <div className="border border-black/30 p-2.5 bg-light-gray/40">
-                  <span className="text-[10px] text-mid-gray uppercase tracking-wider block mb-0.5">
+                <div className="border border-black/30 p-3 bg-light-gray/40 hover:border-black hover:bg-light-gray transition-colors duration-150 shadow-hard-sm">
+                  <span className="text-xs text-mid-gray uppercase tracking-wider block mb-0.5">
                     Telephone Line:
                   </span>
                   <a
@@ -474,8 +472,8 @@ export default function HomePage() {
                   </a>
                 </div>
 
-                <div className="border border-black/30 p-2.5 bg-light-gray/40">
-                  <span className="text-[10px] text-mid-gray uppercase tracking-wider block mb-0.5">
+                <div className="border border-black/30 p-3 bg-light-gray/40 hover:border-black hover:bg-light-gray transition-colors duration-150 shadow-hard-sm">
+                  <span className="text-xs text-mid-gray uppercase tracking-wider block mb-0.5">
                     LinkedIn:
                   </span>
                   <a
@@ -488,8 +486,8 @@ export default function HomePage() {
                   </a>
                 </div>
 
-                <div className="border border-black/30 p-2.5 bg-light-gray/40">
-                  <span className="text-[10px] text-mid-gray uppercase tracking-wider block mb-0.5">
+                <div className="border border-black/30 p-3 bg-light-gray/40 hover:border-black hover:bg-light-gray transition-colors duration-150 shadow-hard-sm">
+                  <span className="text-xs text-mid-gray uppercase tracking-wider block mb-0.5">
                     GitHub:
                   </span>
                   <a
@@ -507,7 +505,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="mailto:raunaksingh9800@gmail.com"
-                  className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-zinc-800 text-white px-5 py-3 border border-black no-underline shadow-hard-sm"
+                  className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-red text-white hover:text-white px-5 py-3 border border-black hover:border-red no-underline shadow-hard-sm active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
                 >
                   Send Email Directly
                 </a>
@@ -516,15 +514,15 @@ export default function HomePage() {
                   href="/raunak-singh-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black px-5 py-3 border border-black no-underline shadow-hard-sm inline-flex items-center gap-1.5"
+                  className="group font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black hover:text-red px-5 py-3 border border-black no-underline shadow-hard-sm inline-flex items-center gap-1.5 active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
                 >
                   <span>Download Resume (PDF)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray group-hover:text-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
                 </a>
 
                 <button
                   onClick={handleCopyEmail}
-                  className="font-heading font-bold text-xs uppercase px-4 py-3 border border-black bg-white hover:bg-light-gray text-black cursor-pointer shadow-hard-sm"
+                  className="font-heading font-bold text-xs uppercase px-4 py-3 border border-black bg-white hover:bg-light-gray text-black hover:text-red cursor-pointer shadow-hard-sm active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
                 >
                   {copied ? "Copied Email!" : "Copy Email"}
                 </button>

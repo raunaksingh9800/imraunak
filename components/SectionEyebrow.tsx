@@ -15,22 +15,22 @@ export function SectionEyebrow({
 }: SectionEyebrowProps) {
   return (
     <div
-      className={`border-b-2 border-black pb-2 mb-6 sm:mb-8 select-none ${className}`}
+      className={`border-b-2 border-black pb-2.5 mb-6 sm:mb-8 select-none ${className}`}
     >
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <div className="flex items-baseline gap-2">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <div className="flex items-baseline gap-2.5">
           {number && (
-            <span className="font-heading font-black text-xs text-red uppercase tracking-widest">
+            <span className="font-heading font-black text-xs text-red uppercase tracking-widest shrink-0">
               {number}
             </span>
           )}
-          <h2 className="font-display text-2xl sm:text-3xl text-black font-black uppercase tracking-tight leading-none m-0">
+          <h2 className="font-display text-2xl sm:text-3xl text-black font-black uppercase tracking-tight leading-none m-0 [text-wrap:balance]">
             {title}
           </h2>
         </div>
 
         {subtitle && (
-          <p className="font-body text-xs sm:text-sm text-mid-gray m-0 leading-normal">
+          <p className="font-body text-xs sm:text-sm text-mid-gray m-0 leading-normal [text-wrap:pretty]">
             {subtitle}
           </p>
         )}

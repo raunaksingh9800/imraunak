@@ -41,14 +41,14 @@ export function ImagePlaceholder({
       {/* Editorial Figure Header Strip */}
       <div className="bg-light-gray border-b border-black px-3.5 py-1.5 flex items-center justify-between text-xs font-heading">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[10px] text-red font-bold uppercase tracking-wider">
+          <span className="font-mono text-xs text-red font-bold uppercase tracking-wider">
             [FIG. {figureNumber}]
           </span>
           <span className="font-bold text-black uppercase tracking-tight truncate max-w-[320px] sm:max-w-md">
             {alt}
           </span>
         </div>
-        <span className="text-[10px] text-mid-gray font-mono uppercase hidden sm:inline">
+        <span className="text-xs text-mid-gray font-mono uppercase hidden sm:inline">
           {recommendedSize}
         </span>
       </div>
@@ -75,7 +75,7 @@ export function ImagePlaceholder({
             <p className="font-body text-xs text-mid-gray max-w-md mb-2">
               Placeholder slot for design deliverable. Image asset can be dropped here.
             </p>
-            <span className="font-mono text-[10px] text-black/70 bg-white border border-black/30 px-2 py-0.5 uppercase">
+            <span className="font-mono text-xs text-black/70 bg-white border border-black/30 px-2 py-0.5 uppercase">
               Slot: {recommendedSize}
             </span>
           </div>
@@ -85,7 +85,7 @@ export function ImagePlaceholder({
       {/* Caption Strip */}
       {caption && (
         <figcaption className="p-3 bg-white border-t border-black/20 font-body text-xs text-black leading-relaxed">
-          <strong className="font-heading text-[11px] font-bold uppercase text-black mr-1.5">
+          <strong className="font-heading text-xs font-bold uppercase text-black mr-1.5">
             Note:
           </strong>
           {caption}

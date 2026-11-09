@@ -75,7 +75,7 @@ export function CaseStudyTemplate({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-zinc-800 text-white px-4 py-2 border border-black no-underline shadow-hard-sm inline-flex items-center gap-1.5"
+                className="font-heading font-bold text-xs uppercase tracking-wider bg-black hover:bg-red text-white hover:text-white px-4 py-2 border border-black hover:border-red no-underline shadow-hard-sm inline-flex items-center gap-1.5 active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
               >
                 <span>Visit Live Platform</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -86,7 +86,7 @@ export function CaseStudyTemplate({
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black px-4 py-2 border border-black no-underline shadow-hard-sm inline-flex items-center gap-1.5"
+                className="font-heading font-bold text-xs uppercase tracking-wider bg-white hover:bg-light-gray text-black hover:text-red px-4 py-2 border border-black no-underline shadow-hard-sm inline-flex items-center gap-1.5 active:translate-y-[1px] active:shadow-none transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
               >
                 <span>Interactive Demo</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray" />
@@ -97,7 +97,7 @@ export function CaseStudyTemplate({
 
         {/* Quantified Research Contributions Grid */}
         <div className="border border-black bg-white p-4 shadow-hard-sm mt-6">
-          <div className="font-heading font-black text-[11px] uppercase tracking-wider text-black border-b border-black/20 pb-1.5 mb-3">
+          <div className="font-heading font-black text-xs uppercase tracking-wider text-black border-b border-black/20 pb-1.5 mb-3">
             Documented Contributions &amp; Verified Impact Benchmarks:
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
@@ -110,7 +110,7 @@ export function CaseStudyTemplate({
                   {m.label}
                 </span>
                 {m.detail && (
-                  <span className="font-body text-[11px] text-mid-gray block mt-0.5">
+                  <span className="font-body text-xs text-mid-gray block mt-0.5">
                     {m.detail}
                   </span>
                 )}
@@ -210,7 +210,7 @@ export function CaseStudyTemplate({
                         {f.title}
                       </h4>
                       {f.stat && (
-                        <span className="font-heading font-black text-[10px] bg-black text-white px-1.5 py-0.5">
+                        <span className="font-heading font-black text-xs bg-black text-white px-1.5 py-0.5">
                           {f.stat}
                         </span>
                       )}
@@ -248,7 +248,7 @@ export function CaseStudyTemplate({
                   className="border border-black bg-white p-5 shadow-hard-sm space-y-3"
                 >
                   <div className="border-b border-black/20 pb-2">
-                    <span className="font-heading font-black text-[10px] text-red uppercase tracking-wider block">
+                    <span className="font-heading font-black text-xs text-red uppercase tracking-wider block">
                       Role #{i + 1}: {persona.role}
                     </span>
                     <h4 className="font-heading font-black text-sm uppercase text-black m-0 mt-0.5">
@@ -262,7 +262,7 @@ export function CaseStudyTemplate({
                   </div>
 
                   <div className="space-y-1">
-                    <strong className="font-heading font-bold text-[10px] uppercase text-black block tracking-wider">
+                    <strong className="font-heading font-bold text-xs uppercase text-black block tracking-wider">
                       Workflow Friction Points:
                     </strong>
                     <ul className="font-body text-xs text-mid-gray list-disc list-inside space-y-0.5 m-0">
@@ -275,7 +275,7 @@ export function CaseStudyTemplate({
                   </div>
 
                   <div className="border-t border-black/20 pt-2 font-body text-xs text-black">
-                    <strong className="font-heading font-bold text-[10px] uppercase text-red block tracking-wider">
+                    <strong className="font-heading font-bold text-xs uppercase text-red block tracking-wider">
                       Design Response:
                     </strong>
                     {persona.designResponse}
@@ -303,14 +303,14 @@ export function CaseStudyTemplate({
                   <div key={i} className="border border-black/30 p-3 space-y-2">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <div className="bg-light-gray border border-black/20 p-2.5">
-                        <span className="font-heading font-bold text-[10px] text-mid-gray uppercase block mb-1">
+                        <span className="font-heading font-bold text-xs text-mid-gray uppercase block mb-1">
                           Previous Friction Point:
                         </span>
                         <span className="font-body text-black">{shift.legacy}</span>
                       </div>
 
                       <div className="bg-white border border-black p-2.5">
-                        <span className="font-heading font-black text-[10px] text-red uppercase block mb-1">
+                        <span className="font-heading font-black text-xs text-red uppercase block mb-1">
                           Engineered Solution:
                         </span>
                         <span className="font-body text-black font-semibold">{shift.redesigned}</span>
@@ -318,7 +318,7 @@ export function CaseStudyTemplate({
                     </div>
 
                     <div className="font-body text-xs text-mid-gray border-t border-black/10 pt-1">
-                      <strong className="text-black font-heading font-bold text-[10px] uppercase">
+                      <strong className="text-black font-heading font-bold text-xs uppercase">
                         Rationale:{" "}
                       </strong>
                       {shift.why}
@@ -440,31 +440,31 @@ export function CaseStudyTemplate({
       <nav className="border-t border-black pt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 select-none">
         <Link
           href={`/work/${prevProject.slug}`}
-          className="border border-black bg-white hover:bg-light-gray p-3 text-left no-underline shadow-hard-sm flex-1"
+          className="border border-black bg-white hover:bg-light-gray p-3 text-left no-underline shadow-hard-sm flex-1 active:translate-y-[1px] active:shadow-none transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
-          <span className="font-heading text-[10px] text-mid-gray uppercase block">
+          <span className="font-heading text-xs text-mid-gray uppercase block">
             &lt;&lt; Previous Project ({prevProject.number}):
           </span>
-          <span className="font-heading font-black text-xs text-black uppercase block truncate">
+          <span className="font-heading font-black text-xs text-black uppercase block truncate mt-0.5">
             {prevProject.title}
           </span>
         </Link>
 
         <Link
           href="/#work"
-          className="border border-black bg-white hover:bg-light-gray p-3 text-center no-underline shadow-hard-sm font-heading font-bold text-xs uppercase text-black"
+          className="border border-black bg-white hover:bg-light-gray p-3 text-center no-underline shadow-hard-sm font-heading font-bold text-xs uppercase text-black active:translate-y-[1px] active:shadow-none transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
           All {PROJECTS.length} Projects
         </Link>
 
         <Link
           href={`/work/${nextProject.slug}`}
-          className="border border-black bg-white hover:bg-light-gray p-3 text-right no-underline shadow-hard-sm flex-1"
+          className="border border-black bg-white hover:bg-light-gray p-3 text-right no-underline shadow-hard-sm flex-1 active:translate-y-[1px] active:shadow-none transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
-          <span className="font-heading text-[10px] text-mid-gray uppercase block">
+          <span className="font-heading text-xs text-mid-gray uppercase block">
             Next Project ({nextProject.number}) &gt;&gt;:
           </span>
-          <span className="font-heading font-black text-xs text-black uppercase block truncate">
+          <span className="font-heading font-black text-xs text-black uppercase block truncate mt-0.5">
             {nextProject.title}
           </span>
         </Link>

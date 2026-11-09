@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 export function PortfolioIndex() {
@@ -27,7 +26,15 @@ export function PortfolioIndex() {
       { rootMargin: "-20% 0px -70% 0px" }
     );
 
-    const sectionIds = ["work", "about", "experience", "leadership", "skills", "achievements", "contact"];
+    const sectionIds = [
+      "work",
+      "about",
+      "experience",
+      "leadership",
+      "skills",
+      "achievements",
+      "contact",
+    ];
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -51,53 +58,67 @@ export function PortfolioIndex() {
   ];
 
   return (
-    <div className="border border-black bg-white select-none shadow-hard-sm">
-      <div className="bg-black text-white px-3 py-1.5 flex items-center justify-between font-heading font-bold text-xs uppercase tracking-wider">
+    <nav
+      aria-label="Portfolio Directory Index"
+      className="border border-black bg-white select-none shadow-hard-sm"
+    >
+      {/* Index Title Header */}
+      <div className="bg-black text-white px-3.5 py-2 flex items-center justify-between font-heading font-bold text-xs uppercase tracking-wider">
         <span>Portfolio Index</span>
-        <span className="text-[10px] text-mid-gray">1996 / 2026</span>
+        <span className="font-mono text-xs text-mid-gray">1996 / 2026</span>
       </div>
 
+      {/* Directory Item List */}
       <div className="divide-y divide-black/20 font-heading text-xs">
         {directoryItems.map((item) => {
           const isActive = activeSection === item.hash;
           return (
             <div
               key={item.num}
-              className={`px-3 py-2 flex items-center justify-between transition-colors group ${
-                isActive ? "bg-light-gray border-l-4 border-l-red" : "hover:bg-light-gray"
+              className={`px-3.5 py-2 flex items-center justify-between border-l-4 transition-colors duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] group ${
+                isActive
+                  ? "bg-light-gray border-l-red"
+                  : "border-l-transparent hover:bg-light-gray hover:border-l-black/30"
               }`}
             >
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                 <span
-                  className={`font-mono text-[10px] ${
+                  className={`font-mono text-xs shrink-0 transition-colors duration-150 ${
                     isActive ? "text-red font-bold" : "text-mid-gray group-hover:text-red"
                   }`}
                 >
                   {item.num}
                 </span>
+
                 {item.isPdf ? (
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-black group-hover:text-red no-underline uppercase tracking-wide flex items-center gap-1"
+                    className="font-bold text-black group-hover:text-red no-underline uppercase tracking-wide flex items-center gap-1 active:translate-x-[1px] transition-[color,transform] duration-150 truncate"
                   >
-                    <span>{item.label}</span>
-                    <ArrowUpRight className="w-3 h-3 text-mid-gray" />
+                    <span className="truncate">{item.label}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-mid-gray group-hover:text-red shrink-0" />
                   </a>
                 ) : (
                   <Link
                     href={item.href}
-                    className={`uppercase tracking-wide no-underline ${
-                      isActive ? "font-black text-red" : "font-bold text-black group-hover:text-red"
+                    className={`uppercase tracking-wide no-underline active:translate-x-[1px] transition-[color,transform] duration-150 truncate ${
+                      isActive
+                        ? "font-black text-red"
+                        : "font-bold text-black group-hover:text-red"
                     }`}
                   >
-                    {item.label}
+                    <span className="truncate">{item.label}</span>
                   </Link>
                 )}
               </div>
 
-              <span className={`font-body text-[11px] ${isActive ? "text-black font-semibold" : "text-mid-gray"}`}>
+              <span
+                className={`font-body text-xs transition-colors duration-150 shrink-0 hidden min-[360px]:inline ${
+                  isActive ? "text-black font-semibold" : "text-mid-gray"
+                }`}
+              >
                 {item.meta}
               </span>
             </div>
@@ -106,13 +127,12 @@ export function PortfolioIndex() {
       </div>
 
       {/* Subtle Credibility Footnote */}
-      <div className="p-3 bg-light-gray border-t border-black text-xs font-body text-mid-gray leading-tight">
-        <span className="font-heading font-black text-[10px] text-black uppercase tracking-wider block mb-1">
+      <div className="p-3.5 bg-light-gray border-t border-black text-xs font-body text-mid-gray leading-relaxed">
+        <span className="font-heading font-black text-xs text-black uppercase tracking-wider block mb-1">
           CURRENT VOCATIONAL FOCUS:
         </span>
         Designing human-centered digital experiences, systems architecture, and product interfaces.
       </div>
-    </div>
+    </nav>
   );
 }
-

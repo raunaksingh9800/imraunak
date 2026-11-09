@@ -90,10 +90,10 @@ export function VideoPlaceholder({
       {/* Player Top Frame Bar */}
       <div className="bg-black text-white px-3.5 py-2 flex items-center justify-between text-xs font-heading border-b border-black">
         <div className="flex items-center gap-2 truncate">
-          <span className="font-mono text-[10px] text-red font-bold uppercase tracking-wider shrink-0">
+          <span className="font-mono text-xs text-red font-bold uppercase tracking-wider shrink-0">
             [VIDEO DEMO {slotNumber}]
           </span>
-          <span className="font-bold text-white uppercase tracking-tight text-[11px] truncate">
+          <span className="font-bold text-white uppercase tracking-tight text-xs truncate">
             {title}
           </span>
         </div>
@@ -262,7 +262,7 @@ export function VideoPlaceholder({
                   togglePlay();
                 }}
                 aria-label={isPlaying ? "Pause video" : "Play video"}
-                className="flex items-center gap-1.5 px-2.5 py-0.5 border border-white hover:bg-white hover:text-black text-white font-heading font-bold text-[10px] uppercase transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-0.5 border border-white hover:bg-white hover:text-black text-white font-heading font-bold text-xs uppercase active:translate-y-[1px] transition-[background-color,color,transform] duration-150"
               >
                 {isPlaying ? (
                   <>
@@ -284,7 +284,7 @@ export function VideoPlaceholder({
                   restartVideo();
                 }}
                 aria-label="Restart video playback"
-                className="p-1 hover:bg-zinc-800 transition-colors text-zinc-300 hover:text-white"
+                className="p-1 hover:bg-zinc-800 active:translate-y-[1px] transition-[background-color,transform] duration-150 text-zinc-300 hover:text-white"
                 title="Restart"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -299,7 +299,7 @@ export function VideoPlaceholder({
         <div className="p-3.5 sm:p-4 bg-white border-t border-black font-body text-xs text-black leading-relaxed flex items-start gap-2.5">
           <Film className="w-4 h-4 text-black shrink-0 mt-0.5" />
           <div>
-            <strong className="font-heading font-bold text-[10px] uppercase text-black block mb-0.5 tracking-wider">
+            <strong className="font-heading font-bold text-xs uppercase text-black block mb-0.5 tracking-wider">
               Walkthrough Notes &amp; Demonstration Scope:
             </strong>
             <span className="text-mid-gray">{caption}</span>
