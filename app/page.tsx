@@ -7,6 +7,7 @@ import { ArrowUpRight, ArrowDown, Copy, Check, Mail, Phone, ExternalLink } from 
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 import { ProjectCard, ProjectCardData } from "@/components/ProjectCard";
 import { PortfolioIndex } from "@/components/PortfolioIndex";
+import { TaglineReveal } from "@/components/TaglineReveal";
 import {
   WORK_EXPERIENCE,
   LEADERSHIP_EXPERIENCE,
@@ -77,6 +78,17 @@ export default function HomePage() {
       ──────────────────────────────────────────────────────────── */}
       <section className="border-b border-black pb-10 sm:pb-14 w-full max-w-full">
         <div className="space-y-6 max-w-4xl w-full min-w-0">
+          {/* Vocational Availability Ticker & Location Coordinates */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-black/15 pb-2 text-xs font-mono text-mid-gray">
+            <div className="flex items-center gap-2 text-black font-semibold">
+              <span className="w-2 h-2 bg-red animate-pulse inline-block shrink-0" />
+              <span>CURRENT STATUS: AVAILABLE FOR PRODUCT &amp; UX INQUIRIES</span>
+            </div>
+            <span className="hidden min-[520px]:inline text-mid-gray">
+              SYS // 12.9716° N, 77.5946° E
+            </span>
+          </div>
+
           {/* Subtle Credibility & Context Line */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 sm:gap-x-4 font-heading text-xs uppercase tracking-wider text-mid-gray">
             <div className="flex items-center gap-2 text-black font-bold flex-wrap">
@@ -170,6 +182,11 @@ export default function HomePage() {
           </section>
 
           {/* ───────────────────────────────────────────────────────
+              DEALT AWARD-SITE MOMENT: EDITORIAL MANIFESTO REVEAL
+          ───────────────────────────────────────────────────────── */}
+          <TaglineReveal />
+
+          {/* ───────────────────────────────────────────────────────
               SECTION 02: ABOUT RAUNAK SINGH
           ───────────────────────────────────────────────────────── */}
           <section id="about" className="scroll-mt-20">
@@ -181,15 +198,15 @@ export default function HomePage() {
 
             <div className="border border-black bg-white p-5 sm:p-6 shadow-hard-sm space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                {/* Photo Frame */}
+                {/* Photo Frame with Tactile Hover Zoom */}
                 <div className="md:col-span-4 flex flex-col items-center">
-                  <div className="border border-black bg-black p-1 w-full max-w-[200px]">
+                  <div className="border border-black bg-black p-1 w-full max-w-[200px] shadow-hard-sm group cursor-pointer overflow-hidden">
                     <div className="relative aspect-[4/5] w-full overflow-hidden bg-zinc-900">
                       <Image
                         src="/raunak-singh.png"
                         alt="Raunak Singh"
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
                         sizes="(max-width: 768px) 100vw, 200px"
                         priority
                       />
