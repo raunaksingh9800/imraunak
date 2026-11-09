@@ -95,8 +95,8 @@ export default function CustomCreationsPage() {
 
               {/* Hover Indicator Overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-end justify-between p-2.5 pointer-events-none">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white font-mono text-[9px] uppercase px-2 py-0.5 border border-white flex items-center gap-1">
-                  <Maximize2 className="w-2.5 h-2.5" />
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white font-mono text-xs uppercase px-2 py-0.5 border border-white flex items-center gap-1 shadow-hard-sm">
+                  <Maximize2 className="w-3 h-3" />
                   EXPAND
                 </span>
               </div>
@@ -181,7 +181,7 @@ export default function CustomCreationsPage() {
           {/* Lightbox Footer Bar */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-6xl flex items-center justify-between text-zinc-400 font-mono text-[10px] py-2 border-t border-zinc-800"
+            className="w-full max-w-6xl flex items-center justify-between text-zinc-400 font-mono text-xs py-2 border-t border-zinc-800"
           >
             <span>USE ARROW KEYS OR CLICK SIDES TO NAVIGATE</span>
             <span className="text-zinc-500">PRESS ESC TO EXIT</span>

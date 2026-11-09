@@ -72,6 +72,7 @@ export function Navigation() {
               <Link
                 key={link.label}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 className={`font-heading text-xs uppercase tracking-wider no-underline py-4 relative whitespace-nowrap transition-colors duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:translate-y-[1px] ${
                   active
                     ? "font-black text-red"
@@ -162,6 +163,7 @@ export function Navigation() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
+                      aria-current={active ? "page" : undefined}
                       className={`p-2.5 border text-center no-underline block active:translate-y-[1px] transition-colors duration-150 ${
                         active
                           ? "border-red bg-light-gray text-red font-black"

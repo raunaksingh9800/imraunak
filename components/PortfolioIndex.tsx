@@ -68,26 +68,27 @@ export function PortfolioIndex() {
         <span className="font-mono text-xs text-mid-gray">1996 / 2026</span>
       </div>
 
-      {/* Directory Item List */}
+      {/* Directory Item List with Consistent Enclosed Rows */}
       <div className="divide-y divide-black/20 font-heading text-xs">
         {directoryItems.map((item) => {
           const isActive = activeSection === item.hash;
           return (
             <div
               key={item.num}
-              className={`px-3.5 py-2 flex items-center justify-between border-l-4 transition-colors duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] group ${
+              className={`px-3.5 py-2 flex items-center justify-between transition-colors duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] group ${
                 isActive
-                  ? "bg-light-gray border-l-red"
-                  : "border-l-transparent hover:bg-light-gray hover:border-l-black/30"
+                  ? "bg-light-gray"
+                  : "hover:bg-light-gray"
               }`}
             >
               <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                 <span
-                  className={`font-mono text-xs shrink-0 transition-colors duration-150 ${
+                  className={`font-mono text-xs shrink-0 flex items-center gap-1.5 transition-colors duration-150 ${
                     isActive ? "text-red font-bold" : "text-mid-gray group-hover:text-red"
                   }`}
                 >
-                  {item.num}
+                  {isActive && <span className="w-1.5 h-1.5 bg-red inline-block shrink-0" />}
+                  <span>{item.num}</span>
                 </span>
 
                 {item.isPdf ? (

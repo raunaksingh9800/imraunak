@@ -134,8 +134,8 @@ export function CaseStudyTemplate({
                 {project.narrative.overview}
               </p>
 
-              <div className="border-l-2 border-red pl-4 py-1 bg-light-gray font-body text-sm text-black">
-                <strong className="font-heading font-bold text-xs uppercase text-red block mb-0.5">
+              <div className="border border-black p-3.5 bg-light-gray font-body text-sm text-black shadow-hard-sm">
+                <strong className="font-heading font-bold text-xs uppercase text-red block mb-1">
                   Core Design Problem:
                 </strong>
                 {project.narrative.problem}
@@ -191,7 +191,7 @@ export function CaseStudyTemplate({
 
               {/* Authentic Field Quote */}
               {project.narrative.insights.quote && (
-                <div className="border-l-2 border-black pl-4 py-2 font-body text-base italic text-black bg-light-gray">
+                <div className="border border-black p-4 font-body text-base italic text-black bg-light-gray shadow-hard-sm">
                   &ldquo;{project.narrative.insights.quote}&rdquo;
                   {project.narrative.insights.quoteAuthor && (
                     <div className="font-heading text-xs font-bold not-italic text-mid-gray mt-1">

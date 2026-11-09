@@ -214,7 +214,7 @@ export default function HomePage() {
                     My work spans UX research, interaction design, product development, and engineering. I enjoy getting involved beyond the interface — from interviewing users and mapping journeys to understanding the systems that power the experience.
                   </p>
 
-                  <div className="border-l-2 border-red pl-3 py-1 font-body text-sm font-semibold text-black bg-light-gray/60">
+                  <div className="border border-black p-3 font-body text-sm font-semibold text-black bg-light-gray shadow-hard-sm">
                     &ldquo;Currently interning at ITC Limited as a Technology Intern and leading UX research at CIA Labs.&rdquo;
                   </div>
                 </div>
@@ -266,8 +266,8 @@ export default function HomePage() {
               {WORK_EXPERIENCE.map((exp) => (
                 <div
                   key={exp.id}
-                  className={`border border-black p-5 shadow-hard-sm transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 ${
-                    exp.isHighPriority ? "bg-white border-l-4 border-l-red" : "bg-white"
+                  className={`p-5 shadow-hard-sm transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 ${
+                    exp.isHighPriority ? "bg-white border-2 border-black" : "bg-white border border-black"
                   }`}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-black/20 pb-2 mb-3">

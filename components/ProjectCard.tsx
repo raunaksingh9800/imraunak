@@ -43,7 +43,7 @@ export function ProjectCard({ project }: { project: ProjectCardData }) {
           </p>
 
           {project.metricsSummary && (
-            <div className="font-heading text-xs font-bold text-mid-gray uppercase tracking-wide border-l-2 border-red pl-3">
+            <div className="font-heading text-xs font-bold text-black uppercase tracking-wide px-2.5 py-1 bg-light-gray border border-black/30 inline-block shadow-hard-sm">
               {project.metricsSummary}
             </div>
           )}
